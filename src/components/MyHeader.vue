@@ -1,20 +1,34 @@
 <script>
+import ProgressIndicator from "./ProgressIndicator.vue";
+
 export default {
   name: "MyHeader",
+  components: {
+    ProgressIndicator,
+  },
   data() {
     return {
       message: false,
+      progress: '50%',
     };
   },
   methods: {
+    updateProgressIndicator() {
+      const { documentElement, body } = document;
+      let windowScroll = body.scrollTop || documentElement.scrollTop;
+      let height = documentElement.scrollHeight - documentElement.clientHeight;
+      this.progress = (windowScroll / height) * 100 + "%";
+    },
     changeTheme() {
       document.body.classList.toggle("darkMode");
     },
   },
+  mounted() {
+    window.addEventListener("scroll", this.updateProgressIndicator);
+  },
   props: {
     scolling: {
-      type: Boolean,
-      default: false,
+      type: String,
     },
   },
 };
@@ -22,6 +36,7 @@ export default {
 
 <template>
   <header id="header">
+    <p>{{ scolling }}</p>
     <div class="max-width" id="navbar-content">
       <a href="#" aria-label="visit homepage" aria-current="page">
         <img src="@/assets/logo.svg" alt="logo" />
@@ -48,9 +63,7 @@ export default {
         </div>
       </nav>
     </div>
-    <div class="progress-container">
-      <div class="progress-bar" id="myBar"></div>
-    </div>
+    <ProgressIndicator />
   </header>
 </template>
 

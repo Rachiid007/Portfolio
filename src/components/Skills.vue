@@ -70,19 +70,25 @@ export default {
     gap: 10px 20px; /* row-gap column gap */
 }
 
+#skills-content .column {
+    width: calc(50% - 20px);
+    min-width: 300px;
+}
+
 #skills-content .bars {
     margin-bottom: 15px;
 }
 
-#skills-content .column {
-    width: calc(50% - 20px);
-    min-width: 300px;
+#skills-content .info {
+    display: flex;
+    justify-content: space-between;
 }
 
 #skills-content span {
     font-weight: 500;
     font-size: 18px;
 }
+
 #skills-content .line {
     height: 0.8em;
     width: 100%;

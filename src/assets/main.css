@@ -91,20 +91,6 @@ body.darkMode .title-table {
   color: yellow;
 }
 
-/* The progress container (grey background) */
-.progress-container {
-  width: 100%;
-  height: 8px;
-  background: #ccc;
-}
-
-/* The progress bar (scroll indicator) */
-.progress-bar {
-  height: 8px;
-  background-color: crimson;
-  width: 0;
-}
-
 /* Scroll Back To Top Button */
 #myBtn {
   display: none; /* Hidden by default */

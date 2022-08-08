@@ -20,16 +20,35 @@ export default {
   },
   data() {
     return {
-      isDark: null,
+      posScroll: '',
     };
-  }
+  },
+
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    // handleScroll() {
+    //   this.posScroll = window.scrollY;
+    // },
+    // scrollIndicator() {
+    //   let height =
+    //     document.documentElement.scrollHeight -
+    //     document.documentElement.clientHeight;
+    //   let scrolled = (this.posScroll / height) * 100;
+    //   // document.getElementById("myBar").style.width = scrolled + "%";
+    //   this.posScroll = scrolled + "%";
+    // },
+  },
 };
 </script>
 
 <template>
-  <MyHeader @change-theme="PrintTheme" />
+  <MyHeader />
   <main class="max-width">
-    <button @click="store.increment()">store.increment</button>
     <Presentation />
     <About />
     <Skills />

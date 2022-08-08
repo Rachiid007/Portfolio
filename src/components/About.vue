@@ -13,12 +13,7 @@
           Je suis Abderrachid BELLAALI et je suis un
           <strong class="typing-2">Développeur</strong>.
         </h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ut
-          voluptatum eveniet doloremque autem excepturi eaque, sit laboriosam
-          voluptatem nisi delectus. Facere explicabo hic minus accusamus alias
-          fuga nihil dolorum quae.
-        </p>
+        <p>Etudiant passionné par le développement d'applications, je bénéficie d'une expérience pratique endéveloppement back et front acquise lors de divers projets et formations.</p>
         <div id="mettre-ici"></div>
         <a
           class="button-custom"

@@ -1,41 +1,28 @@
+<!--
+Modal component with customizable slots and CSS transitions.
+-->
+
 <script>
-import Modal from "./Modal.vue";
+import Modal from './Modal.vue'
 
 export default {
   name: "Validations",
-  data() {
-    return {
-      revele: false
-    };
-  },
   components: {
     Modal
   },
-  methods: {
-    toggleModal() {
-      this.revele = !this.revele;
+  data() {
+    return {
+      showModal: false
     }
   }
-};
+}
 </script>
 
-
 <template>
-<article id="validations">
-    <h2 class="title">À Valider</h2>
-    <div id="validation-content">
+  <a id="show-modal" @click="showModal = true" class="button-custom">Tableau récapitulatif</a>
 
-
-
-        <div class="container my-5">
-            <modal :revele="revele" :toggleModal="toggleModal"></modal>
-
-            <div>
-                <a @click="toggleModal" id="display-table" class="button-custom trigger">Tableau récapitulatif</a>
-            </div>
-        </div>
-
-    </div>
-</article>
+  <Teleport to="#modal">
+    <!-- use the modal component, pass in the prop -->
+    <Modal :show="showModal" @close="showModal = false" />
+  </Teleport>
 </template>
-

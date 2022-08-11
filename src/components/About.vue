@@ -66,4 +66,17 @@ export default {
   text-align: justify;
   margin-bottom: 15px;
 }
+
+@media screen and (max-width: 768px) {
+  #about-content {
+    flex-direction: column;
+  }
+  #my-picture {
+    width: 400px;
+    margin-bottom: 20px;
+  }
+  #bibliography {
+    width: 100%;
+  }
+}
 </style>

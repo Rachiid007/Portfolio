@@ -191,4 +191,32 @@ export default {
 #contact textarea:focus {
   border-color: #b3b3b3;
 }
+
+@media screen and (max-width: 768px) {
+  #contact-content {
+    grid-template-areas: "infos"
+                          "vertical-line"
+                          "form";
+    grid-template-rows: 1fr 3px 1fr;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  #contact-content .left {
+    grid-area: infos;
+  }
+  #contact-content .right {
+    grid-area: form;
+  }
+  #contact-infos {
+    width: 100%;
+  }
+
+  #contact-content #contact-infos {
+    height: 200px;
+  }
+
+  .right .text {
+    margin-top: 20px;
+  }
+}
 </style>

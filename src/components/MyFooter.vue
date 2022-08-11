@@ -26,4 +26,8 @@ footer a {
 footer a:hover {
   color: lightskyblue;
 }
+
+@media screen and (max-width: 768px) {
+
+}
 </style>

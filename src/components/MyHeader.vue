@@ -9,7 +9,9 @@ export default {
   data() {
     return {
       message: false,
-      progress: '50%',
+      progress: '',
+      isMobile: true,
+      isActive: false,
     };
   },
   methods: {
@@ -22,32 +24,36 @@ export default {
     changeTheme() {
       document.body.classList.toggle("darkMode");
     },
+    toggleActiveMenu() {
+      this.isActive = !this.isActive;
+    },
+    // handleView() {
+    //   if(window.innerWidth < 768) {
+    //     this.isMobile = true;
+    //   } else {
+    //     this.isMobile = false;
+    //   }
+    // }
   },
   mounted() {
     window.addEventListener("scroll", this.updateProgressIndicator);
-  },
-  props: {
-    scolling: {
-      type: String,
-    },
-  },
+  }
 };
 </script>
 
 <template>
   <header id="header">
-    <p>{{ scolling }}</p>
     <div class="max-width" id="navbar-content">
-      <a href="#" aria-label="visit homepage" aria-current="page">
+      <a href="#" aria-label="visit homepage" aria-current="page" id="myLogo">
         <img src="@/assets/logo.svg" alt="logo" />
       </a>
-      <nav id="navbar">
-        <a aria-current="page" href="#about">About</a>
-        <a aria-current="page" href="#skills">Skills</a>
-        <a aria-current="page" href="#validations">Validations</a>
-        <a aria-current="page" href="#contact">Contact</a>
-
-        <div>
+      <nav id="navbar" :class="{ active: isActive }">
+        <a @click="toggleActiveMenu" aria-current="page" href="#about">About</a>
+        <a @click="toggleActiveMenu" aria-current="page" href="#skills">Skills</a>
+        <a @click="toggleActiveMenu" aria-current="page" href="#validations">Validations</a>
+        <a @click="toggleActiveMenu" aria-current="page" href="#contact">Contact</a>
+      </nav>
+      <div id="theme" :class="{ active: isActive }">
           <input
             @change="changeTheme"
             v-model="message"
@@ -61,9 +67,9 @@ export default {
             <div class="ball"></div>
           </label>
         </div>
-      </nav>
+      <i id="bars" @click="toggleActiveMenu" :class="{ active: isActive }" class="fa-solid fa-bars fa-2xl"></i>
     </div>
-    <ProgressIndicator />
+    <ProgressIndicator id="progress" />
   </header>
 </template>
 
@@ -82,14 +88,15 @@ export default {
   color: white;
   position: fixed; /* sticky */
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 999;
   transition: all 0.3s ease;
 }
 
-#navbar-content {
+/* #navbar-content {
   padding: 5px 0;
-}
+} */
 
 #header .max-width {
   display: flex;
@@ -116,4 +123,100 @@ export default {
 #navbar a:hover {
   color: crimson;
 }
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  width: 50px;
+  height: 24px;
+  background-color: black;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*  target the element after the label*/
+.checkbox:checked + .label .ball {
+  transform: translateX(25px);
+}
+
+.fa-moon {
+  color: pink;
+}
+
+.fa-sun {
+  color: yellow;
+}
+
+
+#bars {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background-color: darkblue;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 0;
+  }
+
+  #navbar.active {
+    left: -20%;
+  }
+
+  #navbar a {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  #bars {
+    display: block;
+    z-index: 999;
+  }
+
+  #bars.active:before {
+    content: "\f00d";
+  }
+
+  #header .max-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  #myLogo {
+    z-index: 999;
+  }
+}
+
 </style>

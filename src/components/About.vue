@@ -13,7 +13,7 @@
           Je suis Abderrachid BELLAALI et je suis un
           <strong class="typing-2">Développeur</strong>.
         </h2>
-        <p>Etudiant passionné par le développement d'applications, je bénéficie d'une expérience pratique endéveloppement back et front acquise lors de divers projets et formations.</p>
+        <p>Etudiant passionné par le développement, je bénéficie d'une expérience pratique en développement back et front acquise lors de divers projets et formations.</p>
         <div id="mettre-ici"></div>
         <a
           class="button-custom"

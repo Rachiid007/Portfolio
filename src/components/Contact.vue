@@ -58,17 +58,17 @@
         <form action="#">
           <div class="fields">
             <div class="field name">
-              <input type="text" placeholder="Nom" required />
+              <input v-model="name" type="text" placeholder="Nom" required />
             </div>
             <div class="field email">
-              <input type="email" placeholder="Email" required />
+              <input v-model="email" type="email" placeholder="Email" required />
             </div>
           </div>
           <div class="field">
-            <input type="text" placeholder="Sujet" required />
+            <input v-model="subject" type="text" placeholder="Sujet" required />
           </div>
           <div class="field textarea">
-            <textarea placeholder="Message..." required></textarea>
+            <textarea v-model="message" placeholder="Message..." required></textarea>
           </div>
           <div>
             <button class="button-custom" type="submit">Envoyer</button>
@@ -82,6 +82,14 @@
 <script>
 export default {
   name: "Contact",
+  data() {
+    return {
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    };
+  },
 };
 </script>
 

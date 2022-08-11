@@ -31,7 +31,7 @@ export default {
   height: 100vh;
   z-index: 9998;
   background-color: rgba(0, 0, 0, 0.6);
-  transition: opacity 0.3s ease;
+  transition: opacity 0.7s ease;
 }
 
 .modal-wrapper {
@@ -44,16 +44,6 @@ export default {
   width: 70%;
   border-radius: 0.5rem;
 }
-
-/* .modal-container {
-  width: max-content;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-} */
 
 .modal-default-button {
   position: absolute;
@@ -89,7 +79,7 @@ export default {
 
 .modal-enter-from .modal-container,
 .modal-leave-to .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.9);
+  transform: none;
 }
 </style>

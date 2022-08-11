@@ -52,7 +52,7 @@ export default {
         <a @click="toggleActiveMenu" aria-current="page" href="#skills">Skills</a>
         <a @click="toggleActiveMenu" aria-current="page" href="#validations">Validations</a>
         <a @click="toggleActiveMenu" aria-current="page" href="#contact">Contact</a>
-      </nav>
+
       <div id="theme" :class="{ active: isActive }">
           <input
             @change="changeTheme"
@@ -67,6 +67,7 @@ export default {
             <div class="ball"></div>
           </label>
         </div>
+        </nav>
       <i id="bars" @click="toggleActiveMenu" :class="{ active: isActive }" class="fa-solid fa-bars fa-2xl"></i>
     </div>
     <ProgressIndicator id="progress" />
@@ -84,7 +85,7 @@ export default {
 
 /* NAVBAR */
 #header {
-  background-color: darkblue;
+  background-color: #611f82;
   color: white;
   position: fixed; /* sticky */
   top: 0;
@@ -94,9 +95,10 @@ export default {
   transition: all 0.3s ease;
 }
 
-/* #navbar-content {
-  padding: 5px 0;
-} */
+#navbar-content {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 #header .max-width {
   display: flex;
@@ -174,23 +176,24 @@ export default {
 @media (max-width: 768px) {
   #navbar {
     position: fixed;
-    height: 100vh;
-    width: 100%;
+    height: 100%;
+    width: 100vw;
     left: -100%;
     top: 0;
-    background-color: darkblue;
-    text-align: center;
-    padding-top: 80px;
-    transition: all 0.3s ease;
+    /* background-color: rgb(60, 30, 94); */
+    background: rgb(2,0,36);
+background: linear-gradient(176deg, rgba(2,0,36,0.9587185215883228) 0%, rgba(132,45,175,1) 50%, rgba(0,78,255,1) 100%);
+
+    padding-top: 50px;
+    transition: all 0.7s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    column-gap: 0;
+    justify-content: flex-start;
   }
 
   #navbar.active {
-    left: -20%;
+    /* left: -20%; */
+    left: 0;
   }
 
   #navbar a {
@@ -212,10 +215,14 @@ export default {
     align-items: center;
   }
 
-
-
   #myLogo {
+    width: 120px;
     z-index: 999;
+  }
+
+  #theme {
+    position: absolute;
+    bottom: 5%;
   }
 }
 

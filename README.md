@@ -1,4 +1,6 @@
-# Portfolio of Abderrachid BELLAALI with Vue.js 3 :heart_eyes:
+# My portfolio
+
+## developed with Vue.js 3 :heart_eyes:
 
 This template should help get you started developing with Vue 3 in Vite.
 

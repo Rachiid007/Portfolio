@@ -137,6 +137,9 @@
             </tr>
         </tfoot>
     </table>
+
+  <a id="download-table-recap" class="button-custom">Télécharger</a>
+
 </div>
 </template>
 
@@ -154,8 +157,7 @@ table {
     min-width: 800px;
     border-collapse: collapse;
     border: 2px solid crimson;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 20px auto;
 }
 
 thead tr > th {

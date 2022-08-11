@@ -41,7 +41,7 @@ export default {
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
-  width: 70%;
+  width: max-content;
   border-radius: 0.5rem;
 }
 
@@ -81,5 +81,12 @@ export default {
 .modal-leave-to .modal-container {
   -webkit-transform: scale(1.9);
   transform: none;
+}
+
+@media (max-width: 768px) {
+  .modal-wrapper {
+    padding: 10px;
+    width: 90%;
+  }
 }
 </style>

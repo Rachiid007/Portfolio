@@ -114,6 +114,7 @@ export default {
 
 #contact-content .right {
   grid-area: form;
+  margin-top: -20px;
 }
 
 #contact-content .text {
@@ -127,7 +128,7 @@ export default {
   all: unset;
   display: flex;
   align-items: flex-start;
-  height: calc(100% - 48px);
+  height: 235px;
   flex-direction: column;
   align-content: space-between;
   justify-content: space-between;
@@ -195,28 +196,35 @@ export default {
 @media screen and (max-width: 768px) {
   #contact-content {
     grid-template-areas: "infos"
-                          "vertical-line"
                           "form";
-    grid-template-rows: 1fr 3px 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     gap: 0;
   }
   #contact-content .left {
     grid-area: infos;
   }
-  #contact-content .right {
-    grid-area: form;
-  }
+
   #contact-infos {
     width: 100%;
   }
 
-  #contact-content #contact-infos {
-    height: 200px;
+  #vertical-line {
+    display: none;
   }
 
-  .right .text {
-    margin-top: 20px;
+  #contact-content #contact-infos {
+    height: 175px;
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  #contact-content .right {
+    grid-area: form;
+  }
+
+  #contact .fields {
+    flex-direction: column;
   }
 }
 </style>

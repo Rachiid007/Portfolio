@@ -28,6 +28,8 @@ footer a:hover {
 }
 
 @media screen and (max-width: 768px) {
-
+  footer p {
+    font-size: 12px;
+  }
 }
 </style>

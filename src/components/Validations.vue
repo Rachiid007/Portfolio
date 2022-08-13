@@ -25,7 +25,8 @@ export default {
 
   <Teleport to="#modal">
     <!-- use the modal component, pass in the prop -->
-    <Modal :show="showModal" @close="showModal = false" />
+    <Modal :show="showModal" @close="showModal = false" @wheel.prevent @scroll.prevent/>
+    <!-- @touchmove.prevent -->
   </Teleport>
 </article>
 </template>

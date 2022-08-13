@@ -42,18 +42,17 @@ export default {
 </script>
 
 <template>
-  <header id="header">
+  <header id="header" :class="{ active: isActive }">
     <div class="max-width" id="navbar-content">
       <a href="#" aria-label="visit homepage" aria-current="page" id="myLogo">
         <img src="@/assets/logo.svg" alt="logo" />
       </a>
-      <nav id="navbar" :class="{ active: isActive }">
+      <nav id="navbar">
         <a @click="toggleActiveMenu" aria-current="page" href="#about">About</a>
         <a @click="toggleActiveMenu" aria-current="page" href="#skills">Skills</a>
         <a @click="toggleActiveMenu" aria-current="page" href="#validations">Validations</a>
         <a @click="toggleActiveMenu" aria-current="page" href="#contact">Contact</a>
-
-      <div id="theme" :class="{ active: isActive }">
+        <div id="theme">
           <input
             @change="changeTheme"
             v-model="message"
@@ -67,7 +66,8 @@ export default {
             <div class="ball"></div>
           </label>
         </div>
-        </nav>
+      </nav>
+
       <i id="bars" @click="toggleActiveMenu" :class="{ active: isActive }" class="fa-solid fa-bars fa-2xl"></i>
     </div>
     <ProgressIndicator id="progress" />
@@ -132,32 +132,32 @@ export default {
 }
 
 .label {
-  width: 50px;
-  height: 24px;
+  width: 42px;
+  height: 20px;
   background-color: black;
   display: flex;
   border-radius: 50px;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding: 2px;
   position: relative;
   transform: scale(1.5);
 }
 
 .ball {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-color: white;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  /* top: 0;
+  left: 0; */
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
 
 /*  target the element after the label*/
 .checkbox:checked + .label .ball {
-  transform: translateX(25px);
+  transform: translateX(21px);
 }
 
 .fa-moon {
@@ -173,7 +173,25 @@ export default {
   display: none;
 }
 
-@media (max-width: 768px) {
+/* TABLET */
+@media screen and (min-width: 601px) and (max-width: 1280px) {
+  #navbar {
+    width: calc(100% - 140px);
+    justify-content: flex-end;
+    gap: 0 27px; /* row-gap column gap */
+  }
+
+  #navbar a {
+    margin-left: 0;
+  }
+
+  #myLogo {
+    width: 140px;
+  }
+}
+
+/* SMARTPHONE */
+@media (max-width: 601px) {
   #navbar {
     position: fixed;
     height: 100%;
@@ -182,16 +200,16 @@ export default {
     top: 0;
     /* background-color: rgb(60, 30, 94); */
     background: rgb(2,0,36);
-background: linear-gradient(176deg, rgba(2,0,36,0.9587185215883228) 0%, rgba(132,45,175,1) 50%, rgba(0,78,255,1) 100%);
+    background: linear-gradient(176deg, rgba(2,0,36,0.9587185215883228) 0%, rgba(132,45,175,1) 50%, rgba(0,78,255,1) 100%);
 
     padding-top: 50px;
-    transition: all 0.7s ease;
+    transition: all 0.8s ease;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
 
-  #navbar.active {
+  .active #navbar {
     /* left: -20%; */
     left: 0;
   }
@@ -205,7 +223,7 @@ background: linear-gradient(176deg, rgba(2,0,36,0.9587185215883228) 0%, rgba(132
     z-index: 999;
   }
 
-  #bars.active:before {
+  .active #bars:before {
     content: "\f00d";
   }
 

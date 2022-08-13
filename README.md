@@ -1,8 +1,8 @@
-# My portfolio
+# [My portfolio](https://rachiid007.github.io/Portfolio/)
 
-## developed with Vue.js 3 :heart_eyes:
+## in development with Vue.js 3 :heart_eyes:
 
-This template should help get you started developing with Vue 3 in Vite.
+-> [Preview](https://rachiid007.github.io/Portfolio/) <-
 
 ## Recommended IDE Setup
 

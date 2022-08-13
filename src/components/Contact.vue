@@ -58,17 +58,17 @@
         <form action="#">
           <div class="fields">
             <div class="field name">
-              <input v-model="name" type="text" placeholder="Nom" required />
+              <input v-model="name" id="name" type="text" placeholder="Nom" required />
             </div>
             <div class="field email">
-              <input v-model="email" type="email" placeholder="Email" required />
+              <input v-model="email" id="email" type="email" placeholder="Email" required />
             </div>
           </div>
           <div class="field">
-            <input v-model="subject" type="text" placeholder="Sujet" required />
+            <input v-model="subject" id="subject" type="text" placeholder="Sujet" required />
           </div>
           <div class="field textarea">
-            <textarea v-model="message" placeholder="Message..." required></textarea>
+            <textarea v-model="message" id="message" placeholder="Message..." required></textarea>
           </div>
           <div>
             <button class="button-custom" type="submit">Envoyer</button>
@@ -183,7 +183,7 @@ export default {
   border: 1px solid lightgrey;
   border-radius: 6px;
   outline: none;
-  padding: 0 15px;
+  padding: 10px 15px;
   font-size: 17px;
   transition: all 0.3s ease;
   resize: none;

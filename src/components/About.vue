@@ -5,7 +5,7 @@
     <div id="about-content">
       <img
         id="my-picture"
-        src="@/assets/Rachid_removeBg.png"
+        src="@/assets/Rachid-photo.png"
         alt="M. Abderrachid BELLAALI"
       />
       <section id="bibliography">
@@ -35,13 +35,14 @@ export default {
 <style scoped>
 #about-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
+  gap: 0;
 }
 
 #my-picture {
-  min-width: 270px;
+  min-width: 240px;
   /* max-width: 350px; */
   width: 35%;
   height: auto;
@@ -67,7 +68,7 @@ export default {
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 601px) {
   #about-content {
     flex-direction: column;
   }
@@ -76,7 +77,7 @@ export default {
     margin-bottom: 20px;
   }
   #bibliography {
-    width: 100%;
+    width: 80%;
   }
 }
 </style>

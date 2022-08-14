@@ -34,18 +34,8 @@ article:not(:last-child) {
 }
 
 body.darkMode,
-body.darkMode p,
-body.darkMode .modal-content {
+body.darkMode p {
   background-color: var(--black);
-  color: var(--white);
-}
-
-body.darkMode table th,
-body.darkMode table td {
-  color: var(--black);
-}
-
-body.darkMode .title-table {
   color: var(--white);
 }
 

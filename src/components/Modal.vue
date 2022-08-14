@@ -1,20 +1,26 @@
-<script>
+<script setup>
 import TableRecap from './TableRecap.vue'
+import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core';
 
-export default {
-    props: {
-        show: Boolean
-    },
-  components: { TableRecap },
-}
+const props = defineProps({
+  show: Boolean,
+})
+
+const modal = ref(null)
+onClickOutside(modal, () => {
+  emit('close-modal')
+})
+
+const emit = defineEmits(['close-modal'])
 </script>
 
 <template>
   <Transition name="modal">
     <div v-if="show" class="modal-mask">
-      <div class="modal-wrapper">
+      <div class="modal-wrapper" ref="modal">
         <div class="modal-container">
-          <button class="modal-default-button" @click="$emit('close')">X</button>
+          <button class="modal-default-button" @click="$emit('close-modal')">X</button>
           <TableRecap />
         </div>
       </div>
@@ -58,6 +64,11 @@ export default {
 
 .modal-default-button:hover {
   color: red;
+}
+
+body.darkMode .modal-wrapper {
+  background-color: rgb(30, 29, 29);
+  color: black;
 }
 
 /*

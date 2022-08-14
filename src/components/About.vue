@@ -26,12 +26,6 @@
   </article>
 </template>
 
-<script>
-export default {
-  name: "About",
-};
-</script>
-
 <style scoped>
 #about-content {
   display: flex;
@@ -77,7 +71,7 @@ export default {
     margin-bottom: 20px;
   }
   #bibliography {
-    width: 80%;
+    width: 90%;
   }
 }
 </style>

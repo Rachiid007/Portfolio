@@ -79,18 +79,13 @@
   </article>
 </template>
 
-<script>
-export default {
-  name: "Contact",
-  data() {
-    return {
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    };
-  },
-};
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('')
+const email = ref('')
+const subject = ref('')
+const message = ref('')
 </script>
 
 <style scoped>

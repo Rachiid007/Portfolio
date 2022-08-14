@@ -1,61 +1,57 @@
-<script>
+<script setup>
+import { ref } from 'vue';
 import ProgressIndicator from "./ProgressIndicator.vue";
+import { useDark, useToggle } from '@vueuse/core'
 
-export default {
-  name: "MyHeader",
-  components: {
-    ProgressIndicator,
+const isMobile = ref(false);
+
+const toggleActiveMenu = () => {
+  isMobile.value = !isMobile.value;
+}
+
+// is user prefers dark theme
+const isDark = useDark({
+  selector: 'body',
+  attribute: 'class',
+  valueDark: 'darkMode',
+  valueLight: '',
+})
+const toggleDark = useToggle(isDark)
+
+const listLinks = [
+  {
+    name: 'About',
+    path: '#about'
   },
-  data() {
-    return {
-      message: false,
-      progress: '',
-      isMobile: true,
-      isActive: false,
-    };
+  {
+    name: 'Skills',
+    path: '#skills'
   },
-  methods: {
-    updateProgressIndicator() {
-      const { documentElement, body } = document;
-      let windowScroll = body.scrollTop || documentElement.scrollTop;
-      let height = documentElement.scrollHeight - documentElement.clientHeight;
-      this.progress = (windowScroll / height) * 100 + "%";
-    },
-    changeTheme() {
-      document.body.classList.toggle("darkMode");
-    },
-    toggleActiveMenu() {
-      this.isActive = !this.isActive;
-    },
-    // handleView() {
-    //   if(window.innerWidth < 768) {
-    //     this.isMobile = true;
-    //   } else {
-    //     this.isMobile = false;
-    //   }
-    // }
+  {
+    name: 'Validations',
+    path: '#validations'
   },
-  mounted() {
-    window.addEventListener("scroll", this.updateProgressIndicator);
+  {
+    name: 'Contact',
+    path: '#contact'
   }
-};
+];
+
 </script>
 
 <template>
-  <header id="header" :class="{ active: isActive }">
+  <header id="header" :class="{ active: isMobile }">
     <div class="max-width" id="navbar-content">
       <a href="#" aria-label="visit homepage" aria-current="page" id="myLogo">
         <img src="@/assets/logo.svg" alt="logo" />
       </a>
       <nav id="navbar">
-        <a @click="toggleActiveMenu" aria-current="page" href="#about">About</a>
-        <a @click="toggleActiveMenu" aria-current="page" href="#skills">Skills</a>
-        <a @click="toggleActiveMenu" aria-current="page" href="#validations">Validations</a>
-        <a @click="toggleActiveMenu" aria-current="page" href="#contact">Contact</a>
+        <a v-for="(link, index) in listLinks" :key="index" :href="link.path" @click="toggleActiveMenu" aria-current="page">
+          {{ link.name }}
+        </a>
         <div id="theme">
           <input
-            @change="changeTheme"
-            v-model="message"
+            @change="toggleDark()"
             type="checkbox"
             class="checkbox"
             id="checkbox"
@@ -68,9 +64,9 @@ export default {
         </div>
       </nav>
 
-      <i id="bars" @click="toggleActiveMenu" :class="{ active: isActive }" class="fa-solid fa-bars fa-2xl"></i>
+      <i id="bars" @click="toggleActiveMenu" :class="{ active: isMobile }" class="fa-solid fa-bars fa-2xl"></i>
     </div>
-    <ProgressIndicator id="progress" />
+    <ProgressIndicator />
   </header>
 </template>
 
@@ -85,7 +81,7 @@ export default {
 
 /* NAVBAR */
 #header {
-  background-color: #611f82;
+  background-color: #292e8c;
   color: white;
   position: fixed; /* sticky */
   top: 0;

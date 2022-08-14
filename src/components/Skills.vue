@@ -1,63 +1,58 @@
 <template>
-<article id="skills">
-    <h2 class="title" id="test-skills">Mes compétences IT</h2>
-    <div id="skills-content">
-        <div class="column left">
-            <div class="bars">
-                <div class="info">
-                    <span>Python</span>
-                    <span>75%</span>
+    <article id="skills">
+        <h2 class="title" id="test-skills">Mes compétences IT</h2>
+        <div id="skills-content">
+            <div class="column left">
+                <div class="bars">
+                    <div class="info">
+                        <span>Python</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="line python"></div>
                 </div>
-                <div class="line python"></div>
+                <div class="bars">
+                    <div class="info">
+                        <span>JavaScript</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="line js"></div>
+                </div>
+                <div class="bars">
+                    <div class="info">
+                        <span>Linux / Git</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="line linux-git"></div>
+                </div>
             </div>
-            <div class="bars">
-                <div class="info">
-                    <span>JavaScript</span>
-                    <span>80%</span>
+            <div class="column right">
+                <div class="bars">
+                    <div class="info">
+                        <span>HTML / CSS</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="line html-css"></div>
                 </div>
-                <div class="line js"></div>
-            </div>
-            <div class="bars">
-                <div class="info">
-                    <span>Linux / Git</span>
-                    <span>70%</span>
+                <div class="bars">
+                    <div class="info">
+                        <span>Flutter</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="line flutter"></div>
                 </div>
-                <div class="line linux-git"></div>
+                <div class="bars">
+                    <div class="info">
+                        <span>SQL</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="line sql"></div>
+                </div>
             </div>
         </div>
-        <div class="column right">
-            <div class="bars">
-                <div class="info">
-                    <span>HTML / CSS</span>
-                    <span>80%</span>
-                </div>
-                <div class="line html-css"></div>
-            </div>
-            <div class="bars">
-                <div class="info">
-                    <span>Flutter</span>
-                    <span>50%</span>
-                </div>
-                <div class="line flutter"></div>
-            </div>
-            <div class="bars">
-                <div class="info">
-                    <span>SQL</span>
-                    <span>75%</span>
-                </div>
-                <div class="line sql"></div>
-            </div>
-        </div>
-    </div>
-</article>
+    </article>
 </template>
 
-<script>
-export default {
-    name: "Skills",
-};
 
-</script>
 
 <style scoped>
 

@@ -8,12 +8,6 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: "MyFooter",
-};
-</script>
-
 <style scoped>
 footer {
   padding: 20px 0;

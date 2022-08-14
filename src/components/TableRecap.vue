@@ -143,13 +143,7 @@
 </div>
 </template>
 
-<script>
-export default {
-    name: 'TableRecap',
-}
-</script>
-
-<style scoped>
+<style>
 table {
     table-layout: auto;
     width: 100%;
@@ -242,4 +236,11 @@ tfoot {
 #yemak {
     overflow-x: auto;
 }
+
+body.darkMode th.title-table,
+body.darkMode td.title-table,
+body.darkMode caption {
+    color: white;
+}
+
 </style>

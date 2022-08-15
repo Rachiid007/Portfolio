@@ -1,8 +1,20 @@
 <script setup>
 import Modal from './Modal.vue'
-import { ref } from 'vue'
+import { ref, onUpdated } from 'vue'
+
+import { useScrollLock } from '@vueuse/core'
+const isLocked = useScrollLock(document.body)
 
 const isModalOpen = ref(false)
+
+onUpdated(() => {
+  if (isModalOpen.value) {
+    isLocked.value = true
+  } else {
+    isLocked.value = false
+  }
+})
+
 </script>
 
 <template>

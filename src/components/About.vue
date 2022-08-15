@@ -11,7 +11,7 @@
       <section id="bibliography">
         <h2 class="text">
           Je suis Abderrachid BELLAALI et je suis un
-          <strong class="typing-2">Développeur</strong>.
+          <strong class="typing-2">développeur</strong>.
         </h2>
         <p>Etudiant passionné par le développement, je bénéficie d'une expérience pratique en développement back et front acquise lors de divers projets et formations.</p>
         <div id="mettre-ici"></div>

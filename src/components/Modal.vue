@@ -94,7 +94,7 @@ body.darkMode .modal-wrapper {
   transform: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
   .modal-wrapper {
     padding: 10px;
     width: 90%;

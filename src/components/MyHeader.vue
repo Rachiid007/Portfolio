@@ -1,13 +1,9 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onUpdated } from 'vue';
 import ProgressIndicator from "./ProgressIndicator.vue";
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark, useToggle, useScrollLock } from '@vueuse/core';
 
-const isMobile = ref(false);
-
-const toggleActiveMenu = () => {
-  isMobile.value = !isMobile.value;
-}
+const isLocked = useScrollLock(document.body)
 
 // is user prefers dark theme
 const isDark = useDark({
@@ -15,8 +11,15 @@ const isDark = useDark({
   attribute: 'class',
   valueDark: 'darkMode',
   valueLight: '',
+  storageKey: 'theme',
 })
 const toggleDark = useToggle(isDark)
+
+const isMobile = ref(false);
+
+const toggleActiveMenu = () => {
+  isMobile.value = !isMobile.value;
+}
 
 const listLinks = [
   {
@@ -37,21 +40,29 @@ const listLinks = [
   }
 ];
 
+onUpdated(() => {
+  if (isMobile.value) {
+    isLocked.value = true
+  } else {
+    isLocked.value = false
+  }
+})
+
 </script>
 
 <template>
-  <header id="header" :class="{ active: isMobile }">
+  <header id="header" :class="{ mobile: isMobile }">
     <div class="max-width" id="navbar-content">
       <a href="#" aria-label="visit homepage" aria-current="page" id="myLogo">
         <img src="@/assets/logo.svg" alt="logo" />
       </a>
       <nav id="navbar">
-        <a v-for="(link, index) in listLinks" :key="index" :href="link.path" @click="toggleActiveMenu" aria-current="page">
+        <a v-for="(link, index) in listLinks" :key="index" :href="link.path" v-on="isMobile ? { click: toggleActiveMenu } : {}" aria-current="page">
           {{ link.name }}
         </a>
         <div id="theme">
           <input
-            @change="toggleDark()"
+            @click="toggleDark()"
             type="checkbox"
             class="checkbox"
             id="checkbox"
@@ -64,7 +75,7 @@ const listLinks = [
         </div>
       </nav>
 
-      <i id="bars" @click="toggleActiveMenu" :class="{ active: isMobile }" class="fa-solid fa-bars fa-2xl"></i>
+      <i id="bars" @click="toggleActiveMenu" :class="{ mobile: isMobile }" class="fa-solid fa-bars fa-2xl"></i>
     </div>
     <ProgressIndicator />
   </header>
@@ -205,7 +216,7 @@ const listLinks = [
     justify-content: flex-start;
   }
 
-  .active #navbar {
+  .mobile #navbar {
     /* left: -20%; */
     left: 0;
   }
@@ -219,7 +230,7 @@ const listLinks = [
     z-index: 999;
   }
 
-  .active #bars:before {
+  .mobile #bars:before {
     content: "\f00d";
   }
 

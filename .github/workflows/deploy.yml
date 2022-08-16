@@ -25,6 +25,12 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: 'dist/index.html'
+          target: 'dist/404.html'
+
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:

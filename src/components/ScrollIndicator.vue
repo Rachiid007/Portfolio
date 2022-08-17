@@ -4,25 +4,18 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'ScrollIndicator',
-  data() {
-    return {
-      progress: '0%'
-    }
-  },
-  methods: {
-    updateScrollIndicator() {
-      const { documentElement, body } = document
-      let windowScroll = body.scrollTop || documentElement.scrollTop
-      let height = documentElement.scrollHeight - documentElement.clientHeight
-      this.progress = (windowScroll / height) * 100 + '%'
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.updateScrollIndicator)
-  }
+<script setup>
+import { ref, onMounted } from 'vue'
+const progress = ref('0%')
+
+onMounted(() => {
+  window.addEventListener('scroll', updateScrollIndicator)
+})
+
+const updateScrollIndicator = () => {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+  const progressSnipet = (scrollTop / (scrollHeight - clientHeight)) * 100
+  progress.value = `${progressSnipet}%`
 }
 </script>
 

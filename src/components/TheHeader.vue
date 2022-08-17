@@ -15,6 +15,8 @@ const isDark = useDark({
 })
 const toggleDark = useToggle(isDark)
 
+const ToggleSwitch = ref(isDark)
+
 const isMobile = ref(false)
 
 const toggleActiveMenu = () => {
@@ -66,7 +68,13 @@ onUpdated(() => {
           {{ link.name }}
         </a>
         <div id="theme">
-          <input @click="toggleDark()" type="checkbox" class="checkbox" id="checkbox" />
+          <input
+            @click="toggleDark()"
+            v-model="ToggleSwitch"
+            type="checkbox"
+            class="checkbox"
+            id="checkbox"
+          />
           <label for="checkbox" class="label">
             <i class="fa-solid fa-moon"></i>
             <i class="fa-solid fa-sun"></i>

@@ -66,8 +66,8 @@ onClickOutside(modal, () => {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 9998;
   background-color: rgba(0, 0, 0, 0.6);
   transition: opacity 0.7s ease;
@@ -97,6 +97,12 @@ onClickOutside(modal, () => {
 
 .modal-default-button:hover {
   color: red;
+}
+
+.modal-wrapper {
+  overflow: auto !important;
+  height: 90%;
+  max-height: min-content;
 }
 
 body.darkMode .modal-wrapper {

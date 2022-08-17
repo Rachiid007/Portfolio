@@ -1,7 +1,7 @@
 <script setup>
 import ModalBox from './ModalBox.vue'
 import { ref } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
@@ -9,6 +9,8 @@ const isModalOpen = ref(false)
 
 if (router.currentRoute.value.fullPath === '/summary') {
   isModalOpen.value = true
+} else if (router.currentRoute.value.fullPath === '/') {
+  isModalOpen.value = false
 }
 </script>
 

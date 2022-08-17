@@ -53,11 +53,18 @@
         <form action="#" role="form">
           <div class="fields">
             <div class="field name">
-              <input v-model="name" name="name" id="name" type="text" placeholder="Nom" required />
+              <input
+                v-model="formInfos.name"
+                name="name"
+                id="name"
+                type="text"
+                placeholder="Nom"
+                required
+              />
             </div>
             <div class="field email">
               <input
-                v-model="email"
+                v-model="formInfos.email"
                 name="email"
                 id="email"
                 type="email"
@@ -68,7 +75,7 @@
           </div>
           <div class="field">
             <input
-              v-model="subject"
+              v-model="formInfos.subject"
               name="subject"
               id="subject"
               type="text"
@@ -78,7 +85,7 @@
           </div>
           <div class="field textarea">
             <textarea
-              v-model="message"
+              v-model="formInfos.message"
               name="message"
               id="message"
               placeholder="Message..."
@@ -97,10 +104,12 @@
 <script setup>
 import { ref } from 'vue'
 
-const name = ref('')
-const email = ref('')
-const subject = ref('')
-const message = ref('')
+const formInfos = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+})
 </script>
 
 <style scoped>

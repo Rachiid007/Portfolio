@@ -1,8 +1,15 @@
-<!-- eslint-disable no-irregular-whitespace -->
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <table aria-hidden="true">
     <caption>
-      Tableau récapitulatif
+      {{
+        t('activities.summary')
+      }}
     </caption>
     <thead>
       <tr>
@@ -49,7 +56,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="dev-mobile">
-        <th>Développement mobile​</th>
+        <th>Développement mobil</th>
         <td>Formation en ligne "Développez votre première application Android"</td>
         <td>Openclassroom</td>
         <td>Août-22</td>
@@ -59,7 +66,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="challenge">
-        <th rowspan="4">Challenge​</th>
+        <th rowspan="4">Challenge</th>
         <td>Hackathon Ephec 2021</td>
         <td>Ephec</td>
         <td>nov-21</td>
@@ -151,8 +158,6 @@
       </tr>
     </tfoot>
   </table>
-
-  <a id="download-table-recap" class="button-custom">Télécharger</a>
 </template>
 
 <style>

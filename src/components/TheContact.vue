@@ -1,11 +1,25 @@
+<script setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const formInfos = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+})
+</script>
+
 <template>
   <article id="contact">
-    <h2 class="title">Contact</h2>
+    <h2 class="title">{{ t('contact.title') }}</h2>
 
     <div id="contact-content">
       <!-- infos contact -->
       <section class="column left" role="region">
-        <h3 class="text">Mes coordonnées</h3>
+        <h3 class="text">{{ t('contact.infos.contactDetails') }}</h3>
 
         <div id="contact-infos">
           <div class="row">
@@ -15,7 +29,9 @@
 
           <div class="row">
             <i class="fa-solid fa-location-dot fa-lg"></i>
-            <address class="sub-title">94 Rue des Quatre-Vents<br />1080 Bruxelles</address>
+            <address class="sub-title">
+              94 Rue des Quatre-Vents<br />1080 {{ t('contact.infos.city') }}
+            </address>
           </div>
 
           <div class="row">
@@ -48,7 +64,7 @@
 
       <!-- Formulaire -->
       <section class="column right" role="region">
-        <h3 class="text">Envoyez-moi un message</h3>
+        <h3 class="text">{{ t('contact.sendMessage') }}</h3>
 
         <form action="#" role="form">
           <div class="fields">
@@ -58,7 +74,7 @@
                 name="name"
                 id="name"
                 type="text"
-                placeholder="Nom"
+                :placeholder="t('contact.name')"
                 required
               />
             </div>
@@ -68,7 +84,7 @@
                 name="email"
                 id="email"
                 type="email"
-                placeholder="Email"
+                :placeholder="t('contact.email')"
                 required
               />
             </div>
@@ -79,7 +95,7 @@
               name="subject"
               id="subject"
               type="text"
-              placeholder="Sujet"
+              :placeholder="t('contact.subject')"
               required
             />
           </div>
@@ -88,29 +104,18 @@
               v-model="formInfos.message"
               name="message"
               id="message"
-              placeholder="Message..."
+              placeholder="Message"
               required
             ></textarea>
           </div>
           <div>
-            <button class="button-custom" type="submit">Envoyer</button>
+            <button class="button-custom" type="submit">{{ t('contact.send') }}</button>
           </div>
         </form>
       </section>
     </div>
   </article>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const formInfos = ref({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
-</script>
 
 <style scoped>
 #contact-content {

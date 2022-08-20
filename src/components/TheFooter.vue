@@ -1,9 +1,15 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <footer id="footer" role="contentinfo">
     <p>
-      Créé par <a aria-current="page" href="#">Abderrachid BELLAALI</a> |
+      {{ t('footer.created') }} <a aria-current="page" href="#">Abderrachid BELLAALI</a> |
       <i class="fa-solid fa-copyright"></i>
-      2022 Tous droits réservés.
+      2022 {{ t('footer.rights') }}.
     </p>
   </footer>
 </template>

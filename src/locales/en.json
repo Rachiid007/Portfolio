@@ -1,0 +1,42 @@
+{
+  "header": {
+    "about": "About",
+    "skills": "Skills",
+    "activities": "Activities",
+    "contact": "Contact"
+  },
+  "presentation": {
+    "title": "Hi, I'm",
+    "position": "Software Developer",
+    "contact_me": "Contact me"
+  },
+  "about": {
+    "title": "About me",
+    "subTitle": "My name is Abderrachid BELLAALI and I am a 3rd block student in computer science at Ephec of LLN.",
+    "bigText": "Passionate about development, I benefit from practical experience in back-end and front-end development acquired during various projects and trainings.",
+    "download_cv": "Download my resume"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "activities": {
+    "title": "Activities",
+    "summary": "Summary"
+  },
+  "contact": {
+    "title": "Contact",
+    "infos": {
+      "contactDetails": "My contact details",
+      "city": "Brussels"
+    },
+    "sendMessage": "Send me a message",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "send": "Send"
+  },
+  "footer": {
+    "created": "Created by",
+    "rights": "All rights reserved"
+  }
+}

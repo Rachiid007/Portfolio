@@ -1,7 +1,11 @@
 <script setup>
-import { ref, onUpdated } from 'vue'
+import { ref, onUpdated, onMounted } from 'vue'
 import ScrollIndicator from './ScrollIndicator.vue'
 import { useDark, useToggle, useScrollLock } from '@vueuse/core'
+import LanguageSwitcher from './LanguageSwitcher.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const isLocked = useScrollLock(document.body)
 
@@ -25,19 +29,19 @@ const toggleActiveMenu = () => {
 
 const listLinks = [
   {
-    name: 'About',
+    name: 'header.about',
     path: '#about'
   },
   {
-    name: 'Skills',
+    name: 'header.skills',
     path: '#skills'
   },
   {
-    name: 'Validations',
-    path: '#validations'
+    name: 'header.activities',
+    path: '#activities'
   },
   {
-    name: 'Contact',
+    name: 'header.contact',
     path: '#contact'
   }
 ]
@@ -49,6 +53,16 @@ onUpdated(() => {
     isLocked.value = false
   }
 })
+
+const percentage = ref('0%')
+onMounted(() => {
+  window.addEventListener('scroll', updateScrollIndicator)
+})
+
+const updateScrollIndicator = () => {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+  percentage.value = `${(scrollTop / (scrollHeight - clientHeight)) * 100}%`
+}
 </script>
 
 <template>
@@ -65,7 +79,7 @@ onUpdated(() => {
           v-on="isMobile ? { click: toggleActiveMenu } : {}"
           aria-current="page"
         >
-          {{ link.name }}
+          {{ t(link.name) }}
         </a>
         <div id="theme">
           <input
@@ -89,8 +103,9 @@ onUpdated(() => {
         :class="{ mobile: isMobile }"
         class="fa-solid fa-bars fa-2xl"
       ></i>
+      <LanguageSwitcher />
     </div>
-    <ScrollIndicator />
+    <ScrollIndicator :scrollPercentage="percentage" />
   </header>
 </template>
 

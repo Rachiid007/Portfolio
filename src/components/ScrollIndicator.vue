@@ -1,22 +1,11 @@
 <template>
   <div class="progress-indicator-wrapper">
-    <div class="progress-indicator" :style="{ width: progress }"></div>
+    <div class="progress-indicator" :style="{ width: props['scrollPercentage'] }"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-const progress = ref('0%')
-
-onMounted(() => {
-  window.addEventListener('scroll', updateScrollIndicator)
-})
-
-const updateScrollIndicator = () => {
-  const { scrollTop, scrollHeight, clientHeight } = document.documentElement
-  const progressSnipet = (scrollTop / (scrollHeight - clientHeight)) * 100
-  progress.value = `${progressSnipet}%`
-}
+const props = defineProps(['scrollPercentage'])
 </script>
 
 <style>

@@ -78,10 +78,14 @@ onClickOutside(modal, () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  width: max-content;
-  border-radius: 0.5rem;
+  background-color: rgb(27, 216, 33);
+  border-radius: 0.7em;
+  overflow: auto !important;
+  padding: 1em;
+  width: 90%;
+  max-width: max-content;
+  height: 90%;
+  max-height: 700px;
 }
 
 .modal-default-button {
@@ -97,12 +101,6 @@ onClickOutside(modal, () => {
 
 .modal-default-button:hover {
   color: red;
-}
-
-.modal-wrapper {
-  overflow: auto !important;
-  height: 90%;
-  max-height: min-content;
 }
 
 body.darkMode .modal-wrapper {
@@ -133,10 +131,10 @@ body.darkMode .modal-wrapper {
   transform: none;
 }
 
-@media (max-width: 1280px) {
+/* @media (max-width: 1280px) {
   .modal-wrapper {
     padding: 10px;
     width: 90%;
   }
-}
+} */
 </style>

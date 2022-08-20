@@ -39,11 +39,12 @@ const handleSwitchLanguage = () => {
       </option>
     </select>
   </form>
+  <img src="@/assets/us.svg" alt="" />
 </template>
 
 <style scoped>
 select {
-  width: 30px;
+  width: 100px;
   height: 30px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -53,5 +54,10 @@ select {
 option {
   font-size: 14px;
   color: #000;
+}
+
+img {
+  width: 25px;
+  height: auto;
 }
 </style>

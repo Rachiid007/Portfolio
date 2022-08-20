@@ -56,7 +56,7 @@ const { t } = useI18n()
       </tr>
       <!-- Empty line -->
       <tr class="dev-mobile">
-        <th>Développement mobil</th>
+        <th>Développement mobile</th>
         <td>Formation en ligne "Développez votre première application Android"</td>
         <td>Openclassroom</td>
         <td>Août-22</td>
@@ -163,13 +163,11 @@ const { t } = useI18n()
 <style>
 table {
   table-layout: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 1200px;
-  min-width: 800px;
+  max-width: 1100px;
+  min-width: 700px;
+
   border-collapse: collapse;
   border: 2px solid crimson;
-  margin: 0 auto 20px auto;
 }
 
 thead tr > th {

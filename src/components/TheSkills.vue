@@ -1,6 +1,12 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <article id="skills">
-    <h2 class="title" id="test-skills">Mes compétences IT</h2>
+    <h2 class="title" id="test-skills">{{ t('skills.title') }}</h2>
     <div id="skills-content">
       <div class="column left">
         <div class="bars">

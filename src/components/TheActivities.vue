@@ -2,6 +2,9 @@
 import ModalBox from './ModalBox.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -16,10 +19,10 @@ if (router.currentRoute.value.fullPath === '/summary') {
 
 <template>
   <article id="validations">
-    <h2 class="title">À Valider</h2>
-    <router-link to="/summary" class="button-custom" @click="isModalOpen = true"
-      >Tableau récapitulatif</router-link
-    >
+    <h2 class="title">{{ t('activities.title') }}</h2>
+    <router-link to="/summary" class="button-custom" @click="isModalOpen = true">{{
+      t('activities.summary')
+    }}</router-link>
 
     <ModalBox :show="isModalOpen" @close-modal="isModalOpen = false" />
   </article>

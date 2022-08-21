@@ -1,11 +1,19 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <div id="presentation">
-    <h1 id="text-1">Bonjour, je suis</h1>
+    <h1 id="text-1">{{ t('presentation.title') }}</h1>
     <h1 id="text-2">Rachid</h1>
     <h1 id="text-3">
-      <strong class="typing">Software Developer</strong>
+      <strong class="typing">{{ t('presentation.position') }}</strong>
     </h1>
-    <a class="button-custom" aria-current="page" href="#contact">ME CONTACTER</a>
+    <a class="button-custom" aria-current="page" href="#contact">{{
+      t('presentation.contact_me')
+    }}</a>
   </div>
 </template>
 

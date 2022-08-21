@@ -1,0 +1,60 @@
+{
+  "header": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "activities": "Activités",
+    "contact": "Contact"
+  },
+  "presentation": {
+    "title": "Bonjour, je suis",
+    "position": "Développeur",
+    "contact_me": "Contactez-moi"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subTitle": "Mon nom est Abderrachid BELLAALI et je suis étudiant en 3e bloc en technologie de l'informatique à l'Ephec de LLN.",
+    "bigText": "Passionné par le développement, je bénéficie d'une expérience pratique en développement back-end et front-end acquise au cours de divers projets et formations.",
+    "download_cv": "Télécharger mon CV"
+  },
+  "skills": {
+    "title": "Compétences"
+  },
+  "activities": {
+    "title": "Activités",
+    "summary": "Tableau récapitulatif",
+    "table": {
+      "theme": "Thème",
+      "typeOfActivity": "Type d'activité",
+      "place": "Lieu",
+      "dates": "Dates",
+      "to_valorise": "À valoriser",
+      "real": "Réel",
+      "evidence": "Preuve",
+      "web_dev": "Développement web",
+      "mobile_dev": "Développement mobile",
+      "challenges": "Défis",
+      "conferences": "Conférences",
+      "work": "Travail",
+      "projects_dev": "Dévelopement d'un projet",
+      "online_training": "Formation en ligne",
+      "tutor": "Tuteur",
+      "realization_portfolio": "Réalisation de mon Portfolio"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "infos": {
+      "contactDetails": "Mes coordonnées",
+      "city": "Bruxelles"
+    },
+    "sendMessage": "Envoyez-moi un message",
+    "name": "Nom",
+    "email": "E-mail",
+    "subject": "Sujet",
+    "send": "Envoyer"
+  },
+  "footer": {
+    "created": "Créé par",
+    "rights": "Tous droits réservés"
+  }
+}

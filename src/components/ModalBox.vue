@@ -51,8 +51,11 @@ onClickOutside(modal, () => {
     <Transition name="modal">
       <div v-show="props.show" class="modal-mask">
         <div class="modal-wrapper" ref="modal">
+          <button type="button" class="btn-close" @click="$emit('close-modal')">
+            <span class="icon-cross"></span>
+          </button>
+
           <div class="modal-container">
-            <button class="modal-default-button" @click="$emit('close-modal')">X</button>
             <TheSummary />
           </div>
         </div>
@@ -78,31 +81,14 @@ onClickOutside(modal, () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  width: max-content;
-  border-radius: 0.5rem;
-}
-
-.modal-default-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: none;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: blue;
-  cursor: pointer;
-}
-
-.modal-default-button:hover {
-  color: red;
-}
-
-.modal-wrapper {
+  background-color: whitesmoke;
+  border-radius: 0.7em;
   overflow: auto !important;
+  padding: 1em;
+  width: 90%;
+  max-width: max-content;
   height: 90%;
-  max-height: min-content;
+  max-height: 700px;
 }
 
 body.darkMode .modal-wrapper {
@@ -133,10 +119,69 @@ body.darkMode .modal-wrapper {
   transform: none;
 }
 
-@media (max-width: 1280px) {
+/* @media (max-width: 1280px) {
   .modal-wrapper {
     padding: 10px;
     width: 90%;
   }
+} */
+
+/* CLOSE BUTTON */
+.btn-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.btn-close .icon-cross {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.btn-close .icon-cross:before,
+.btn-close .icon-cross:after {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: black;
+  border-radius: 6px;
+}
+.btn-close .icon-cross:before {
+  transform: rotate(45deg);
+}
+.btn-close .icon-cross:after {
+  transform: rotate(-45deg);
+}
+.btn-close .icon-cross span {
+  display: block;
+}
+.btn-close:hover,
+.btn-close:focus {
+  transform: rotateZ(90deg);
+  background-color: crimson;
+}
+
+body.darkMode .icon-cross:before,
+body.darkMode .icon-cross:after {
+  background-color: white;
 }
 </style>

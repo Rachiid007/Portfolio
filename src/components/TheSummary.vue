@@ -1,25 +1,32 @@
-<!-- eslint-disable no-irregular-whitespace -->
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <table aria-hidden="true">
     <caption>
-      Tableau récapitulatif
+      {{
+        t('activities.summary')
+      }}
     </caption>
     <thead>
       <tr>
-        <th scope="col" class="title-table">Thème</th>
-        <th scope="col" class="title-table">Type d'activité</th>
-        <th scope="col" class="title-table">Lieu</th>
-        <th scope="col" class="title-table">Dates</th>
-        <th scope="col" class="title-table">À valoriser</th>
-        <th scope="col" class="title-table">Réel</th>
-        <th scope="col" class="title-table">Preuve</th>
+        <th scope="col" class="title-table">{{ t('activities.table.theme') }}</th>
+        <th scope="col" class="title-table">{{ t('activities.table.typeOfActivity') }}</th>
+        <th scope="col" class="title-table">{{ t('activities.table.place') }}</th>
+        <th scope="col" class="title-table">{{ t('activities.table.dates') }}</th>
+        <th scope="col" class="title-table">{{ t('activities.table.to_valorise') }}</th>
+        <th scope="col" class="title-table">{{ t('activities.table.real') }}</th>
+        <th scope="col" class="title-table">{{ t('activities.table.evidence') }}</th>
       </tr>
     </thead>
 
     <tbody>
       <tr class="dev-web">
-        <th rowspan="2">Développement web</th>
-        <td>Formation en ligne "Back End Development and APIs"</td>
+        <th rowspan="2">{{ t('activities.table.web_dev') }}</th>
+        <td>{{ t('activities.table.online_training') }} "Back End Development and APIs"</td>
         <td>FreeCodeCamp</td>
         <td>janv-22</td>
         <td>5</td>
@@ -33,7 +40,9 @@
         </td>
       </tr>
       <tr class="dev-web">
-        <td>Formation en ligne "JavaScript Algorithms and Data Structures"</td>
+        <td>
+          {{ t('activities.table.online_training') }} "JavaScript Algorithms and Data Structures"
+        </td>
         <td>FreeCodeCamp</td>
         <td>juin-22</td>
         <td>5</td>
@@ -49,8 +58,11 @@
       </tr>
       <!-- Empty line -->
       <tr class="dev-mobile">
-        <th>Développement mobile​</th>
-        <td>Formation en ligne "Développez votre première application Android"</td>
+        <th>{{ t('activities.table.mobile_dev') }}</th>
+        <td>
+          {{ t('activities.table.online_training') }} "Développez votre première application
+          Android"
+        </td>
         <td>Openclassroom</td>
         <td>Août-22</td>
         <td>10</td>
@@ -59,7 +71,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="challenge">
-        <th rowspan="4">Challenge​</th>
+        <th rowspan="4">{{ t('activities.table.challenges') }}</th>
         <td>Hackathon Ephec 2021</td>
         <td>Ephec</td>
         <td>nov-21</td>
@@ -93,7 +105,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="conference">
-        <th>Conférence</th>
+        <th>{{ t('activities.table.conferences') }}</th>
         <td>DevDay 2021</td>
         <td>Cinéscope LLN</td>
         <td>23/11/2021</td>
@@ -103,8 +115,8 @@
       </tr>
       <!-- Empty line -->
       <tr class="job">
-        <th rowspan="3">Job</th>
-        <td>Tuteur programmation</td>
+        <th rowspan="3">{{ t('activities.table.work') }}</th>
+        <td>{{ t('activities.table.tutor') }} programmation</td>
         <td>-</td>
         <td>de fév à mai 22</td>
         <td>5</td>
@@ -121,7 +133,7 @@
       </tr>
       <tr class="job">
         <td>Uber Eats, Bpost et BK</td>
-        <td>Bruxelles</td>
+        <td>{{ t('contact.infos.city') }}</td>
         <td>2021-2022</td>
         <td>0</td>
         <td>500+</td>
@@ -129,8 +141,8 @@
       </tr>
       <!-- Empty line -->
       <tr class="projet-perso">
-        <th>Dévelopement d'un projet</th>
-        <td>Réalisation du Portfolio</td>
+        <th>{{ t('activities.table.projects_dev') }}</th>
+        <td>{{ t('activities.table.realization_portfolio') }}</td>
         <td>-</td>
         <td>de août 22 à mai 23</td>
         <td>10</td>
@@ -151,30 +163,62 @@
       </tr>
     </tfoot>
   </table>
-
-  <a id="download-table-recap" class="button-custom">Télécharger</a>
 </template>
 
-<style>
+<style scoped>
+table caption {
+  font-size: 1.3em;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
 table {
   table-layout: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 1200px;
-  min-width: 800px;
+  max-width: 1100px;
+  min-width: 700px;
+
   border-collapse: collapse;
   border: 2px solid crimson;
-  margin: 0 auto 20px auto;
 }
 
 thead tr > th {
-  font-size: 1.1em;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+tr > th {
+  font-weight: 500;
+}
+
+th,
+td {
+  vertical-align: middle;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  text-align: center;
+}
+
+tfoot {
+  font-size: 1.2em;
   font-weight: bold;
-  padding: 0.5em 0;
+  text-align: center;
+}
+
+body.darkMode th.title-table,
+body.darkMode td.title-table,
+body.darkMode caption {
+  color: white;
 }
 
 thead th:nth-child(1) {
-  width: 20%;
+  width: 15%;
 }
 
 thead th:nth-child(2) {
@@ -186,11 +230,11 @@ thead th:nth-child(3) {
 }
 
 thead th:nth-child(4) {
-  width: 13%;
+  width: 14%;
 }
 
 thead th:nth-child(5) {
-  width: 6%;
+  width: 8%;
 }
 
 thead th:nth-child(6) {
@@ -198,13 +242,7 @@ thead th:nth-child(6) {
 }
 
 thead th:nth-child(7) {
-  width: 7%;
-}
-
-table caption {
-  font-size: 1.3em;
-  margin-bottom: 1em;
-  margin-top: 0;
+  width: 8%;
 }
 
 .dev-web {
@@ -229,26 +267,5 @@ table caption {
 
 .projet-perso {
   background-color: #fd76c7;
-}
-
-td {
-  text-align: left;
-  padding: 8px;
-}
-
-th {
-  text-align: center;
-}
-
-tfoot {
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-}
-
-body.darkMode th.title-table,
-body.darkMode td.title-table,
-body.darkMode caption {
-  color: white;
 }
 </style>

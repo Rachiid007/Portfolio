@@ -4,7 +4,7 @@ import ThePresentation from '@/components/ThePresentation.vue'
 import TheAbout from '@/components/TheAbout.vue'
 import TheSkills from '@/components/TheSkills.vue'
 import TheFooter from '@/components/TheFooter.vue'
-import TheValidations from '@/components/TheValidations.vue'
+import TheActivities from '@/components/TheActivities.vue'
 import TheContact from '@/components/TheContact.vue'
 </script>
 
@@ -14,7 +14,7 @@ import TheContact from '@/components/TheContact.vue'
     <ThePresentation />
     <TheAbout />
     <TheSkills />
-    <TheValidations />
+    <TheActivities />
     <TheContact />
   </main>
   <TheFooter />

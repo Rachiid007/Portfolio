@@ -1,24 +1,28 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <article id="about">
-    <h2 class="title">À propos de moi</h2>
+    <h2 class="title">{{ t('about.title') }}</h2>
 
     <div id="about-content">
       <img id="my-picture" src="@/assets/Rachid-photo.png" alt="M. Abderrachid BELLAALI" />
       <section id="bibliography" role="region">
         <h2 class="text">
-          Je suis Abderrachid BELLAALI et je suis un
-          <strong class="typing-2">développeur</strong>.
+          {{ t('about.subTitle') }}
         </h2>
         <p>
-          Etudiant passionné par le développement, je bénéficie d'une expérience pratique en
-          développement back et front acquise lors de divers projets et formations.
+          {{ t('about.bigText') }}
         </p>
         <div id="mettre-ici"></div>
         <a
           class="button-custom"
           href="https://ephec-my.sharepoint.com/:b:/g/personal/he201942_students_ephec_be/EblZhWvzwsJPvEny1pIGWv8Bjx7MX_GihEpuqaNDEUTVHQ?e=b1O12r"
           target="_blank"
-          ><i class="fa-solid fa-download"></i> Télécharger mon CV</a
+          ><i class="fa-solid fa-download"></i> {{ t('about.download_cv') }}</a
         >
       </section>
     </div>
@@ -49,7 +53,7 @@
 }
 
 #bibliography .text {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -57,6 +61,7 @@
   color: crimson;
 }
 #bibliography p {
+  font-size: 18px;
   text-align: justify;
   margin-bottom: 15px;
 }

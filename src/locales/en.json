@@ -12,8 +12,8 @@
   },
   "about": {
     "title": "About me",
-    "subTitle": "My name is Abderrachid BELLAALI and I am a 3rd block student in computer science at Ephec of LLN.",
-    "bigText": "Passionate about development, I benefit from practical experience in back-end and front-end development acquired during various projects and trainings.",
+    "subTitle": "My name is Abderrachid BELLAALI and I am a 3rd year student in C.S. at EPHEC University College.",
+    "bigText": "Passionate about development, I have a practical experience in back-end and front-end development acquired during various projects and trainings.",
     "download_cv": "Download my resume"
   },
   "skills": {
@@ -21,7 +21,25 @@
   },
   "activities": {
     "title": "Activities",
-    "summary": "Summary"
+    "summary": "Summary",
+    "table": {
+      "theme": "Theme",
+      "typeOfActivity": "Type of activity",
+      "place": "Place",
+      "dates": "Dates",
+      "to_valorise": "To valorise",
+      "real": "Real",
+      "evidence": "Evidence",
+      "web_dev": "Web development",
+      "mobile_dev": "Mobile development",
+      "challenges": "Challenges",
+      "conferences": "Conferences",
+      "work": "Job",
+      "projects_dev": "Projects development",
+      "online_training": "Online training",
+      "tutor": "Tutor",
+      "realization_portfolio": "Realization of my Portfolio"
+    }
   },
   "contact": {
     "title": "Contact",

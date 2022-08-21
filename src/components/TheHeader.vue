@@ -95,6 +95,7 @@ const updateScrollIndicator = () => {
             <div class="ball"></div>
           </label>
         </div>
+        <LanguageSwitcher />
       </nav>
 
       <i
@@ -103,7 +104,6 @@ const updateScrollIndicator = () => {
         :class="{ mobile: isMobile }"
         class="fa-solid fa-bars fa-2xl"
       ></i>
-      <LanguageSwitcher />
     </div>
     <ScrollIndicator :scrollPercentage="percentage" />
   </header>
@@ -155,6 +155,7 @@ const updateScrollIndicator = () => {
   font-weight: 500;
   margin-left: 25px;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 #navbar a:hover {

@@ -70,7 +70,7 @@ const formInfos = ref({
           <div class="fields">
             <div class="field name">
               <input
-                v-model="formInfos.name"
+                v-model.trim="formInfos.name"
                 name="name"
                 id="name"
                 type="text"
@@ -80,7 +80,7 @@ const formInfos = ref({
             </div>
             <div class="field email">
               <input
-                v-model="formInfos.email"
+                v-model.trim="formInfos.email"
                 name="email"
                 id="email"
                 type="email"
@@ -91,7 +91,7 @@ const formInfos = ref({
           </div>
           <div class="field">
             <input
-              v-model="formInfos.subject"
+              v-model.trim="formInfos.subject"
               name="subject"
               id="subject"
               type="text"
@@ -101,7 +101,7 @@ const formInfos = ref({
           </div>
           <div class="field textarea">
             <textarea
-              v-model="formInfos.message"
+              v-model.trim="formInfos.message"
               name="message"
               id="message"
               placeholder="Message"

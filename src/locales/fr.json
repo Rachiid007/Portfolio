@@ -7,7 +7,7 @@
   },
   "presentation": {
     "title": "Bonjour, je suis",
-    "position": "Développeur logiciel",
+    "position": "Développeur",
     "contact_me": "Contactez-moi"
   },
   "about": {
@@ -27,9 +27,18 @@
       "typeOfActivity": "Type d'activité",
       "place": "Lieu",
       "dates": "Dates",
-      "a_valoriser": "A valoriser",
+      "to_valorise": "À valoriser",
       "real": "Réel",
-      "evidence": "Preuve"
+      "evidence": "Preuve",
+      "web_dev": "Développement web",
+      "mobile_dev": "Développement mobile",
+      "challenges": "Défis",
+      "conferences": "Conférences",
+      "work": "Travail",
+      "projects_dev": "Dévelopement d'un projet",
+      "online_training": "Formation en ligne",
+      "tutor": "Tuteur",
+      "realization_portfolio": "Réalisation de mon Portfolio"
     }
   },
   "contact": {

@@ -1,0 +1,102 @@
+@import './reset.css';
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+  --white: white;
+  --black: black;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  transition: background 0.5s linear;
+}
+
+article:not(:last-child) {
+  padding: 50px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.max-width {
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+body.darkMode,
+body.darkMode p {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* Scroll Back To Top Button */
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/* BUTTON */
+
+.button-custom {
+  outline: none; /* Remove outline */
+  color: white;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: crimson;
+  border: 2px solid crimson;
+  transition: all 0.5s ease;
+  text-align: center;
+  padding: 10px 30px;
+}
+.button-custom:hover {
+  color: crimson;
+  background: none;
+}
+
+@media screen and (max-width: 768px) {
+  .max-width {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .button-custom {
+    font-size: 15px;
+    padding: 5px 10px;
+  }
+}

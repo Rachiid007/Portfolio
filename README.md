@@ -1,37 +1,46 @@
 # [My portfolio](https://rachiid007.github.io/Portfolio/)
 
-## in development with Vue.js 3 :heart_eyes:
+## in development with Nuxt 3 :heart_eyes:
 
 -> [Preview](https://rachiid007.github.io/Portfolio/) <-
 
-## Recommended IDE Setup
+Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Setup
 
-## Customize configuration
+Make sure to install the dependencies:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+```bash
+# yarn
+yarn install
 
-## Project Setup
-
-```sh
+# npm
 npm install
+
+# pnpm
+pnpm install --shamefully-hoist
 ```
 
-### Compile and Hot-Reload for Development
+## Development Server
 
-```sh
+Start the development server on http://localhost:3000
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Production
 
-```sh
+Build the application for production:
+
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Locally preview production build:
 
-```sh
-npm run lint
+```bash
+npm run preview
 ```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.

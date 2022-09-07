@@ -19,7 +19,7 @@ const filterSelect = (theme) => {
   whoToSee.value = theme
 }
 
-const ouvreSamer = (id) => {
+const openCarousel = (id) => {
   emit('open-carousel', id)
 }
 
@@ -46,7 +46,7 @@ const emit = defineEmits(['open-carousel'])
       class="cart"
       :key="elem.id"
       v-show="whoToSee === 'All' || elem.theme === whoToSee"
-      @click="ouvreSamer(elem.id)"
+      @click="openCarousel(elem.id)"
     >
       <p>{{ elem.typeOfActivity }}</p>
       <span>{{ elem.place }}</span>
@@ -81,14 +81,10 @@ const emit = defineEmits(['open-carousel'])
 
 #my-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px 50px; /* <row-gap> <column-gap>; */
-  justify-items: stretch;
-  align-items: stretch;
-  justify-content: stretch;
-  grid-auto-columns: minmax(250px, 1fr);
-  margin: 20px auto;
-  min-height: 400px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 25px 20px;
+  justify-content: center;
+  margin: 25px auto;
 }
 
 #my-gallery .cart {

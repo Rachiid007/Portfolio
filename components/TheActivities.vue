@@ -49,6 +49,11 @@ const carouselSlides = computed(() => {
   return slides
 })
 
+const closeModal = () => {
+  isModalOpen.value = false
+  isSummary.value = false
+  isCarousel.value = false
+}
 </script>
 
 <template>
@@ -59,7 +64,7 @@ const carouselSlides = computed(() => {
       {{ $t('activities.summary') }}
     </NuxtLink>
 
-    <ModalBox :show="isModalOpen" @close-modal="isModalOpen = false">
+    <ModalBox :show="isModalOpen" @close-modal="closeModal">
       <ActivitiesSummary v-if="isSummary"></ActivitiesSummary>
       <TheCarousel v-if="isCarousel"
         :nbrOfSlides="carouselSlides.img"

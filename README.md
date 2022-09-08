@@ -1,8 +1,8 @@
-# [My portfolio](https://heroic-sfogliatella-7f8eef.netlify.app/)
+# [My portfolio](https://rachiid007.netlify.app/)
 
 ## in development with Nuxt 3 :heart_eyes:
 
--> [Preview](https://heroic-sfogliatella-7f8eef.netlify.app/) <-
+-> [Preview](https://rachiid007.netlify.app/) <-
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 

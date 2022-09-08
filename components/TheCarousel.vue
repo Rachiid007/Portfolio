@@ -63,7 +63,7 @@ if (autoPlayEnabled.value) {
   autoPlay()
 }
 // onMounted(() => {
-//   getSlideCount.value = document.querySelectorAll('.slide').length
+//   currentSlide.value = 1
 // })
 </script>
 

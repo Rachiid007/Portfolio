@@ -42,7 +42,7 @@ resiveScrollspy(1, skillsContent, skillsPos)
         </div>
         <div class="bars">
           <div class="info">
-            <span>Flutter</span>
+            <span>Flutter / Dart</span>
             <span>50%</span>
           </div>
           <div class="line flutter"></div>

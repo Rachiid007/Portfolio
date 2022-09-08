@@ -21,7 +21,7 @@ export default defineNuxtConfig({
         ]
       }),
       svgLoader({
-        defaultImport: 'url' // or 'url'
+        defaultImport: 'url'
       })
     ]
   },

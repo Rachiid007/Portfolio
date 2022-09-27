@@ -330,7 +330,18 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@intlify/bundle-utils@^3.1.2", "@intlify/bundle-utils@next":
+"@intlify/bundle-utils@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@intlify/bundle-utils/-/bundle-utils-3.2.1.tgz#f1a00fb31716567c8da63fbb351c3199ca12d467"
+  integrity sha512-rf4cLBOnbqmpXVcCdcYHilZpMt1m82syh3WLBJlZvGxN2KkH9HeHVH4+bnibF/SDXCHNh6lM6wTpS/qw+PkcMg==
+  dependencies:
+    "@intlify/message-compiler" next
+    "@intlify/shared" next
+    jsonc-eslint-parser "^1.0.1"
+    source-map "0.6.1"
+    yaml-eslint-parser "^0.3.2"
+
+"@intlify/bundle-utils@next":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@intlify/bundle-utils/-/bundle-utils-3.1.2.tgz#9cd415c3e6a0643056175c375279f7ee0c42210d"
   integrity sha512-amgSo0NN5OKWYdcgFmfJqo2tcUcZ6C66Bxm5ALQnB0m3MUQtS9aJzKoIo+EU9XQiOVmlBFxRtNoZm+psHa5FNA==
@@ -399,12 +410,12 @@
   resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.3.0-beta.3.tgz#fce341eb6abbb6ec5efc8b6847f67050ed5ebaf5"
   integrity sha512-Z/0TU4GhFKRxKh+0RbwJExik9zz57gXYgxSYaPn7YQdkQ/pabSioCY/SXnYxQHL6HzULF5tmqarFm6glbGqKhw==
 
-"@intlify/unplugin-vue-i18n@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@intlify/unplugin-vue-i18n/-/unplugin-vue-i18n-0.6.0.tgz#084608d832ad7e30470e5e8f24b2248665cd7ab7"
-  integrity sha512-GAXsPBY+VtWpA6PRoqL0Yi4is9eCy2oYifqycEuNIbsL72Cn4iRlOaSRjeRaJJj48qWHGNN9Xm5YH7eB3GI/2g==
+"@intlify/unplugin-vue-i18n@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@intlify/unplugin-vue-i18n/-/unplugin-vue-i18n-0.7.0.tgz#10ebcf634921da9661c7a5880a5d0d6844773a00"
+  integrity sha512-FmkQQdTsKINH9KqeKYxOlumxBLD0v6TAMac3+4iqmFTyqqE1pH5Seqta0QQBSAgsJXzsbASkEnHdlsoCC2DfNA==
   dependencies:
-    "@intlify/bundle-utils" "^3.1.2"
+    "@intlify/bundle-utils" "^3.2.1"
     "@intlify/shared" next
     "@rollup/pluginutils" "^4.2.0"
     "@vue/compiler-sfc" "^3.2.23"

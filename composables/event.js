@@ -8,7 +8,6 @@ export function useEventListener(target, event, callback) {
   onUnmounted(() => target.removeEventListener(event, callback))
 }
 
-
 // example of usage
 // mouse.js
 // import { ref } from 'vue'

@@ -1,88 +1,104 @@
 <script setup>
-const skillsPos = ref(null)
+  // const skillsPos = ref(null)
 
-const skillsContent = ref(null)
-resiveScrollspy(1, skillsContent, skillsPos)
+  // const skillsContent = ref(null)
+  // resiveScrollspy(1, skillsContent, skillsPos)
 
-const mySkills = [
-  {
-    name: 'JavaScript',
-    level: '75%',
-  },
-  {
-    name: 'Python',
-    level: '70%',
-  },
-  {
-    name: 'Linux / Git',
-    level: '75%',
-  },
-  {
-    name: 'Docker',
-    level: '75%',
-  },
-  {
-    name: 'HTML / CSS',
-    level: '80%',
-  },
-  {
-    name: 'Flutter / Dart',
-    level: '50%',
-  },
-  {
-    name: 'SQL',
-    level: '70%',
-  }
-]
+  const mySkills = [
+    {
+      name: 'JavaScript',
+      level: '75%'
+    },
+    {
+      name: 'Python',
+      level: '70%'
+    },
+    {
+      name: 'Linux / Git',
+      level: '75%'
+    },
+    {
+      name: 'Docker',
+      level: '75%'
+    },
+    {
+      name: 'HTML / CSS',
+      level: '80%'
+    },
+    {
+      name: 'Flutter / Dart',
+      level: '50%'
+    },
+    {
+      name: 'SQL',
+      level: '70%'
+    }
+  ]
 </script>
 
 <template>
-  <article id="skills" ref="skillsContent">
-    <h2 class="title" ref="skillsPos" id="test-skills">{{ $t('skills.title') }}</h2>
+  <article
+    id="skills"
+    ref="skillsContent"
+  >
+    <h2
+      id="test-skills"
+      ref="skillsPos"
+      class="title"
+    >
+      {{ $t('skills.title') }}
+    </h2>
     <div id="skills-content">
-      <div v-for="skill in mySkills" class="bars">
-          <div class="info">
-            <span>{{ skill.name }}</span>
-            <span>{{ skill.level }}</span>
-          </div>
-          <div class="line">
-            <div class="progress" :style="{ width: skill.level }"></div>
-          </div>
+      <div
+        v-for="skill in mySkills"
+        :key="skill.name"
+        class="bars"
+      >
+        <div class="info">
+          <span>{{ skill.name }}</span>
+          <span>{{ skill.level }}</span>
+        </div>
+        <div class="line">
+          <div
+            class="progress"
+            :style="{ width: skill.level }"
+          ></div>
+        </div>
       </div>
     </div>
   </article>
 </template>
 
 <style scoped>
-#skills-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 17px 20px; /* row-gap column gap */
-}
+  #skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 17px 20px; /* row-gap column gap */
+  }
 
-#skills-content .bars {
-  min-width: 330px;
-  width: calc(50% - 20px);
-}
+  #skills-content .bars {
+    min-width: 330px;
+    width: calc(50% - 20px);
+  }
 
-#skills-content .info {
-  display: flex;
-  justify-content: space-between;
-}
+  #skills-content .info {
+    display: flex;
+    justify-content: space-between;
+  }
 
-#skills-content span {
-  font-weight: 500;
-  font-size: 18px;
-}
+  #skills-content span {
+    font-weight: 500;
+    font-size: 18px;
+  }
 
-#skills-content .line {
-  height: 15px;
-  width: 100%;
-  background: lightgrey;
-}
-#skills-content .progress {
-  height: 100%;
-  background: crimson;
-}
+  #skills-content .line {
+    height: 15px;
+    width: 100%;
+    background: lightgrey;
+  }
+  #skills-content .progress {
+    height: 100%;
+    background: crimson;
+  }
 </style>

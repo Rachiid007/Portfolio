@@ -7,13 +7,48 @@
     </caption>
     <thead>
       <tr>
-        <th scope="col" class="title-table">{{ $t('activities.table.theme') }}</th>
-        <th scope="col" class="title-table">{{ $t('activities.table.typeOfActivity') }}</th>
-        <th scope="col" class="title-table">{{ $t('activities.table.place') }}</th>
-        <th scope="col" class="title-table">{{ $t('activities.table.dates') }}</th>
-        <th scope="col" class="title-table">{{ $t('activities.table.to_valorise') }}</th>
-        <th scope="col" class="title-table">{{ $t('activities.table.real') }}</th>
-        <th scope="col" class="title-table">{{ $t('activities.table.evidence') }}</th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.theme') }}
+        </th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.typeOfActivity') }}
+        </th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.place') }}
+        </th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.dates') }}
+        </th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.to_valorise') }}
+        </th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.real') }}
+        </th>
+        <th
+          scope="col"
+          class="title-table"
+        >
+          {{ $t('activities.table.evidence') }}
+        </th>
       </tr>
     </thead>
 
@@ -142,7 +177,9 @@
         <td>10</td>
         <td>60</td>
         <td>
-          <NuxtLink to="https://github.com/Rachiid007/Portfolio" target="_blank"
+          <NuxtLink
+            to="https://github.com/Rachiid007/Portfolio"
+            target="_blank"
             ><i class="fa-solid fa-arrow-up-right-from-square"></i
           ></NuxtLink>
         </td>
@@ -151,7 +188,12 @@
 
     <tfoot>
       <tr>
-        <th colspan="4" class="title-table">Total</th>
+        <th
+          colspan="4"
+          class="title-table"
+        >
+          Total
+        </th>
         <td class="title-table">60</td>
         <td class="title-table">347</td>
       </tr>
@@ -160,106 +202,106 @@
 </template>
 
 <style scoped>
-table caption {
-  font-size: 22px;
-  margin-bottom: 15px;
-  margin-top: 0;
-}
+  table caption {
+    font-size: 22px;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
 
-table {
-  table-layout: auto;
-  max-width: 1100px;
-  min-width: 700px;
+  table {
+    table-layout: auto;
+    max-width: 1100px;
+    min-width: 700px;
 
-  border-collapse: collapse;
-  border: 2px solid crimson;
-}
+    border-collapse: collapse;
+    border: 2px solid crimson;
+  }
 
-thead tr > th {
-  font-size: 17px;
-  font-weight: 500;
-  padding: 10px 0;
-}
+  thead tr > th {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 0;
+  }
 
-tr > th {
-  font-weight: 500;
-}
+  tr > th {
+    font-weight: 500;
+  }
 
-th,
-td {
-  vertical-align: middle;
-}
+  th,
+  td {
+    vertical-align: middle;
+  }
 
-td {
-  text-align: left;
-  padding: 8px;
-}
+  td {
+    text-align: left;
+    padding: 8px;
+  }
 
-th {
-  text-align: center;
-}
+  th {
+    text-align: center;
+  }
 
-tfoot {
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-}
+  tfoot {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+  }
 
-body.darkMode th.title-table,
-body.darkMode td.title-table,
-body.darkMode caption {
-  color: white;
-}
+  body.darkMode th.title-table,
+  body.darkMode td.title-table,
+  body.darkMode caption {
+    color: white;
+  }
 
-thead th:nth-child(1) {
-  width: 15%;
-}
+  thead th:nth-child(1) {
+    width: 15%;
+  }
 
-thead th:nth-child(2) {
-  width: 35%;
-}
+  thead th:nth-child(2) {
+    width: 35%;
+  }
 
-thead th:nth-child(3) {
-  width: 13%;
-}
+  thead th:nth-child(3) {
+    width: 13%;
+  }
 
-thead th:nth-child(4) {
-  width: 14%;
-}
+  thead th:nth-child(4) {
+    width: 14%;
+  }
 
-thead th:nth-child(5) {
-  width: 8%;
-}
+  thead th:nth-child(5) {
+    width: 8%;
+  }
 
-thead th:nth-child(6) {
-  width: 6%;
-}
+  thead th:nth-child(6) {
+    width: 6%;
+  }
 
-thead th:nth-child(7) {
-  width: 8%;
-}
+  thead th:nth-child(7) {
+    width: 8%;
+  }
 
-.dev-web {
-  background-color: aquamarine;
-}
+  .dev-web {
+    background-color: aquamarine;
+  }
 
-.dev-mobile {
-  background-color: #ffc107;
-}
+  .dev-mobile {
+    background-color: #ffc107;
+  }
 
-.challenge {
-  background-color: #07c5ff;
-}
+  .challenge {
+    background-color: #07c5ff;
+  }
 
-.conference {
-  background-color: #f8992b;
-}
+  .conference {
+    background-color: #f8992b;
+  }
 
-.job {
-  background-color: #87ee2d;
-}
+  .job {
+    background-color: #87ee2d;
+  }
 
-.projet-perso {
-  background-color: #fd76c7;
-}
+  .projet-perso {
+    background-color: #fd76c7;
+  }
 </style>

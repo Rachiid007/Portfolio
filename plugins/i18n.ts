@@ -8,7 +8,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
     locale: 'fr',
     fallbackLocale: 'en',
     availableLocales: ['fr', 'en'],
-    messages: messages
+    messages
   })
 
   vueApp.use(i18n)

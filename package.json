@@ -26,6 +26,6 @@
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.2"
+    "@pinia/nuxt": "^0.4.3"
   }
 }

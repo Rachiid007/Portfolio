@@ -1,12 +1,15 @@
-<script setup>
+<script setup lang="ts">
   // const skillsPos = ref(null)
 
   // const skillsContent = ref(null)
   // resiveScrollspy(1, skillsContent, skillsPos)
 
-  const mySkills = [
+  const mySkills: {
+    name: string
+    level: string
+  }[] = [
     {
-      name: 'JavaScript',
+      name: 'JavaScript / TypeScript',
       level: '75%'
     },
     {
@@ -24,10 +27,6 @@
     {
       name: 'HTML / CSS',
       level: '80%'
-    },
-    {
-      name: 'Flutter / Dart',
-      level: '50%'
     },
     {
       name: 'SQL',

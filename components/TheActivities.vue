@@ -126,8 +126,11 @@
     height: 100%;
   }
   .carousel .slide-info img {
-    min-width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: scale-down;
+    /* object-position: center; */
   }
 </style>

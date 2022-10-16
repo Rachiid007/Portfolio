@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
   // const aboutPos = ref(null)
 
   // scrollspy('about', aboutPos)

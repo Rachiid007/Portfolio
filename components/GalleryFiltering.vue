@@ -1,5 +1,5 @@
-<script setup>
-  import { activitiesInfos } from '~/data/activitiesInfos.js'
+<script setup lang="ts">
+  import { activitiesInfos } from '~/data/activitiesInfos'
 
   const whoToSee = ref('All')
 
@@ -7,9 +7,7 @@
     const uniqueThemes = ['All']
 
     activitiesInfos.filter((elem) => {
-      if (!uniqueThemes.includes(elem.theme)) {
-        uniqueThemes.push(elem.theme)
-      }
+      return !uniqueThemes.includes(elem.theme) ? uniqueThemes.push(elem.theme) : null
     })
 
     return uniqueThemes

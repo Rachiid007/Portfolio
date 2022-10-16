@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
   import { activitiesInfos } from '~/data/activitiesInfos'
 
   // const activitiesPos = ref(null)
@@ -29,17 +29,22 @@
   } else if (route.fullPath === '/') {
     isModalOpen.value = false
   } else if (route.fullPath === '/activity/' + route.params.id) {
-    openCarousel(route.params.id)
+    openCarousel()
   }
 
   function getImageUrl(name) {
     return new URL(`../assets/carousel/${name}`, import.meta.url)
   }
 
+  type ActivitySlide = {
+    img: URL[]
+    description: string
+  }
+
   const carouselSlides = computed(() => {
-    const slides = {}
+    const slides = {} as ActivitySlide
     activitiesInfos.find((elem) => {
-      if (elem.id === parseInt(route.params.id)) {
+      if (elem.id === +route.params.id) {
         slides.img = elem.img.map((img) => {
           return getImageUrl(img)
         })
@@ -130,7 +135,7 @@
     max-width: 100%;
     height: auto;
     max-height: 100%;
-    object-fit: scale-down;
+    object-fit: contain;
     /* object-position: center; */
   }
 </style>

@@ -156,7 +156,7 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
   const dark = ref(true)
 
   // is user prefers dark theme

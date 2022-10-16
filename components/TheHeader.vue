@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { useMainStore } from '~/stores/main'
 

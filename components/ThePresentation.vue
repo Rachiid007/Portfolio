@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div id="presentation">
     <h1 id="text-1">{{ $t('presentation.title') }} <span id="hand">👋</span></h1>

@@ -1,4 +1,17 @@
-export const activitiesInfos = [
+interface ActivityInfo {
+  id: number
+  theme: string
+  typeOfActivity: string
+  place: string
+  dates: string
+  toValorise: number
+  real: number
+  evidence: string
+  img: string[]
+  description: string
+}
+
+export const activitiesInfos: ActivityInfo[] = [
   {
     id: 1,
     theme: 'Web development',

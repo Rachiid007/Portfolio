@@ -1,6 +1,11 @@
+// {
+//   // https://v3.nuxtjs.org/concepts/typescript
+//   "compilerOptions": {
+//     "jsx": "preserve"
+//   }
+// }
+
 {
-  // https://v3.nuxtjs.org/concepts/typescript
-  "compilerOptions": {
-    "jsx": "preserve"
-  }
+  "extends": "./.nuxt/tsconfig.json",
+  "include": ["env.d.ts", ".nuxt/nuxt.d.ts", "**/*"]
 }

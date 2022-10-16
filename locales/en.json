@@ -6,7 +6,8 @@
     "contact": "Contact"
   },
   "presentation": {
-    "title": "Hi, I'm",
+    "hello": "Hello,",
+    "i_am": "I'm",
     "position": "Software Developer",
     "contact_me": "Contact me"
   },

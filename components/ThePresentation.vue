@@ -1,6 +1,8 @@
 <template>
   <div id="presentation">
-    <h1 id="text-1">{{ $t('presentation.title') }} <span id="hand">👋</span></h1>
+    <h1 id="text-1">
+      {{ $t('presentation.hello') }} <span id="hand">👋</span> {{ $t('presentation.i_am') }}
+    </h1>
     <h1 id="text-2">Rachid</h1>
     <h1 id="text-3">
       <strong>{{ $t('presentation.position') }}</strong>

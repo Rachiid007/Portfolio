@@ -39,19 +39,19 @@ const mySkills: {
 </script>
 
 <template>
-  <!-- <article id="skills" ref="skillsContent">
+  <article id="skills" ref="skillsContent">
     <h2 id="test-skills" ref="skillsPos" class="title">
       {{ $t('skills.title') }}
     </h2>
-    <div id="skills-content">
+    <!-- <div id="skills-content">
       <div v-for="skill in mySkills" :key="skill.name" class="bars">
         <div class="info">
           <span>{{ skill.name }}</span>
         </div>
         <ProgressBarSkill :level="skill.level" />
       </div>
-    </div>
-  </article> -->
+    </div> -->
+  </article>
 
   <my-frameworks />
 </template>

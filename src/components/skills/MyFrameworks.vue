@@ -3,7 +3,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
 </script>
 <template>
   <div id="frameworks">
-    <h2 class="sub-title">My programming languages</h2>
+    <h2 class="sub-title">Programming languages</h2>
     <div class="container">
       <div class="child">
         <img
@@ -25,7 +25,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
         <progress-bar-skill :level="80" />
       </div>
     </div>
-    <h2 class="sub-title">My framework</h2>
+    <h2 class="sub-title">Framework</h2>
     <div class="container">
       <div class="child">
         <img alt="Vue logo" class="logo" src="@/assets/skills/vue.svg" />
@@ -91,15 +91,38 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
   max-width: 400px;
   max-height: 200px;
   padding: 1rem;
-  background-color: #6d6969;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+
+  border-radius: 5px;
+  --border-size: 3px;
+  --border-angle: 0turn;
+  background-image: conic-gradient(from var(--border-angle), #213, #112 50%, #213),
+    conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+  background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-animation: bg-spin 3s linear infinite;
+  animation: bg-spin 7s linear infinite;
+}
+@-webkit-keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+.child:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
 }
 
-.child:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0turn;
 }
 
 .logo {

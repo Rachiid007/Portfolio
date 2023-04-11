@@ -1,6 +1,9 @@
 <script setup lang="ts">
+// TODO: Split the component + add SQL skills
+
 import ProgressBarSkill from './ProgressBarSkill.vue'
 </script>
+
 <template>
   <div id="frameworks">
     <h2 class="sub-title">Programming languages</h2>
@@ -17,7 +20,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
       <div class="child">
         <img alt="Python logo" class="logo" src="@/assets/skills/python.svg" />
         <h1 class="name">Python</h1>
-        <progress-bar-skill :level="70" />
+        <progress-bar-skill :level="60" />
       </div>
       <div class="child">
         <img alt="HTML5 and CSS3 logo" class="logo" src="@/assets/skills/html5_and_css3.svg" />
@@ -60,6 +63,11 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
         <h1 class="name">Kubernetes</h1>
         <progress-bar-skill :level="40" />
       </div>
+      <div class="child">
+        <img alt="GitHub Action logo" class="logo" src="@/assets/skills/github-action.svg" />
+        <h1 class="name">GitHub Action</h1>
+        <progress-bar-skill :level="60" />
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +103,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
   border-radius: 5px;
   --border-size: 3px;
   --border-angle: 0turn;
+  color: #fff;
   background-image: conic-gradient(from var(--border-angle), #213, #112 50%, #213),
     conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
   background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)),
@@ -103,6 +112,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
   background-repeat: no-repeat;
   -webkit-animation: bg-spin 3s linear infinite;
   animation: bg-spin 7s linear infinite;
+  animation-play-state: paused; /* l'animation est en pause par défaut */
 }
 @-webkit-keyframes bg-spin {
   to {
@@ -115,8 +125,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
   }
 }
 .child:hover {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
+  animation-play-state: running; /* l'animation reprend lorsqu'on survole la boite */
 }
 
 @property --border-angle {
@@ -138,4 +147,9 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
   text-align: center;
   margin-top: 1rem;
 }
+
+/* body.darkMode {
+  --border-color: #fff;
+  color: #fff;
+} */
 </style>

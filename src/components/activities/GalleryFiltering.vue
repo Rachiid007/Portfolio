@@ -90,7 +90,7 @@ const emit = defineEmits(['open-carousel'])
   /* height: auto; */
   height: 200px;
   padding: 10px;
-  background-color: rgb(40, 40, 202);
+  background-color: rgb(51, 51, 73);
   position: relative;
 }
 

@@ -123,7 +123,7 @@ function handleScroll() {
 
 /* NAVBAR */
 #header {
-  background-color: #292e8c;
+  background-color: #2a2b3b;
   color: white;
   position: fixed; /* sticky */
   top: 0;

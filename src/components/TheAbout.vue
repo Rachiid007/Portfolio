@@ -53,6 +53,7 @@
   width: 35%;
   height: auto;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 #bibliography {

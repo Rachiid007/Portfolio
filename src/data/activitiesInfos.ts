@@ -1,6 +1,6 @@
 interface ActivityInfo {
   id: number
-  theme: string
+  theme: ActivityTheme
   typeOfActivity: string
   place: string
   dates: string
@@ -11,10 +11,20 @@ interface ActivityInfo {
   description: string
 }
 
+export enum ActivityTheme {
+  WebDevelopment = 'Web development',
+  MobileDevelopment = 'Mobile development',
+  Challenges = 'Challenges',
+  Conferences = 'Conferences',
+  Jobs = 'jobs',
+  ProjectsDevelopment = 'Projects development',
+  Others = 'Others'
+}
+
 export const activitiesInfos: ActivityInfo[] = [
   {
     id: 1,
-    theme: 'Web development',
+    theme: ActivityTheme.WebDevelopment,
     typeOfActivity: 'Online training "Back End Development and APIs"',
     place: 'FreeCodeCamp.com',
     dates: 'January 2022',
@@ -26,7 +36,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 2,
-    theme: 'Web development',
+    theme: ActivityTheme.WebDevelopment,
     typeOfActivity: 'Online training "JavaScript Algorithms and Data Structures"',
     place: 'FreeCodeCamp.com',
     dates: 'June 2022',
@@ -39,7 +49,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 3,
-    theme: 'Mobile development',
+    theme: ActivityTheme.MobileDevelopment,
     typeOfActivity: 'Online training "Développez votre première application Android"',
     place: 'OpenClassroom.com',
     dates: 'August 2022',
@@ -51,7 +61,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 4,
-    theme: 'Challenges',
+    theme: ActivityTheme.Challenges,
     typeOfActivity: 'Hackathon Ephec 2021',
     place: 'Ephec',
     dates: 'November 2021',
@@ -63,7 +73,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 5,
-    theme: 'Challenges',
+    theme: ActivityTheme.Challenges,
     typeOfActivity: 'Hackathon Odoo 2022	',
     place: 'Odoo',
     dates: 'April 2022',
@@ -75,7 +85,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 6,
-    theme: 'Challenges',
+    theme: ActivityTheme.Challenges,
     typeOfActivity: 'Capture The Flag Ephec 2022',
     place: 'Ephec',
     dates: 'Fev 2022',
@@ -87,7 +97,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 7,
-    theme: 'Challenges',
+    theme: ActivityTheme.Challenges,
     typeOfActivity: 'Open Week 2022',
     place: 'UCL',
     dates: 'June 2022',
@@ -99,7 +109,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 8,
-    theme: 'Conferences',
+    theme: ActivityTheme.Conferences,
     typeOfActivity: 'DevDay 2021',
     place: 'Cinéscope LLN',
     dates: '23/11/2021',
@@ -111,7 +121,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 9,
-    theme: 'jobs',
+    theme: ActivityTheme.Jobs,
     typeOfActivity: 'Tutor programmation',
     place: '-',
     dates: 'de fév à mai 22',
@@ -123,7 +133,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 10,
-    theme: 'jobs',
+    theme: ActivityTheme.Jobs,
     typeOfActivity: 'Salon SIEP 2021',
     place: 'Tour & Taxi',
     dates: '26 et 27 nov. 22',
@@ -135,7 +145,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 11,
-    theme: 'jobs',
+    theme: ActivityTheme.Jobs,
     typeOfActivity: 'Uber Eats, Bpost et BK',
     place: 'Brussels',
     dates: '2021-2022',
@@ -147,7 +157,7 @@ export const activitiesInfos: ActivityInfo[] = [
   },
   {
     id: 12,
-    theme: 'Projects development',
+    theme: ActivityTheme.ProjectsDevelopment,
     typeOfActivity: 'Realization of my Portfolio',
     place: '-',
     dates: 'de août 22 à mai 23',
@@ -158,3 +168,5 @@ export const activitiesInfos: ActivityInfo[] = [
     description: "Cette activité m'as permis d'apprendre..."
   }
 ]
+
+// TODO: add Hackathon EPHEC 2022, Hack'n WOW #2

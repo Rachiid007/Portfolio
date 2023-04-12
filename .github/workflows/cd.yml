@@ -41,6 +41,8 @@ jobs:
         run: npm run build-only
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: Copy index.html to 404.html
+        run: cp dist/index.html dist/404.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

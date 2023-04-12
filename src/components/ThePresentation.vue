@@ -1,90 +1,89 @@
 <template>
-  <div id="container">
-    <div id="prensentation" class="child">
-      <h1 id="text-1">
-        {{ $t('presentation.hello') }} <span id="hand">👋</span> {{ $t('presentation.i_am') }}
+  <div class="container">
+    <div class="presentation">
+      <h1 class="title">
+        {{ $t('presentation.hello') }} <span class="wave">👋</span> {{ $t('presentation.i_am') }}
       </h1>
-      <h1 id="text-2">Rachid</h1>
-      <h1 id="text-3">
-        <strong>{{ $t('presentation.position') }}</strong>
-      </h1>
+      <h1 class="name">Rachid</h1>
+      <h2 class="position">{{ $t('presentation.position') }}</h2>
       <a class="button-custom" aria-current="page" href="#contact">{{
         $t('presentation.contact_me')
       }}</a>
     </div>
-    <div class="child">
-      <img id="my-picture" src="@/assets/Rachid-photo.png" alt="M. Abderrachid BELLAALI" />
+    <div class="my-image">
+      <img src="@/assets/Rachid-photo.png" alt="M. Abderrachid BELLAALI" />
     </div>
   </div>
 </template>
-
 <style scoped>
-#container {
+.container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: space-between;
   align-items: center;
-
   height: 100vh;
-  width: 100%;
   min-height: 500px;
   font-family: 'Ubuntu', sans-serif;
 }
 
-#prensentation {
+.presentation {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  max-width: 50%;
+  padding: 0;
+  margin: 0;
 }
 
-.child {
-  width: calc(50% - 30px);
-}
-
-#text-1 {
+.title {
   font-size: clamp(30px, 7vw, 35px);
+  font-weight: 600;
 }
-#text-2 {
+
+.name {
   font-size: clamp(65px, 7vw, 90px);
   font-weight: 600;
-  margin-left: -3px;
 }
-#text-3 {
+
+.position {
   font-size: clamp(30px, 7vw, 40px);
-}
-#text-3 strong {
   color: crimson;
   font-weight: 500;
+  margin-bottom: 30px;
 }
 
-#hand {
-  font-size: 45px;
+.my-image {
+  width: 50%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#my-picture {
-  max-width: min(100%, 500px);
-  object-fit: cover;
+img {
+  max-width: 100%;
+  height: auto;
   border-radius: 50%;
-  /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
 }
 
 @media only screen and (max-width: 768px) {
-  #container {
+  .container {
     flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
   }
 
-  .child {
+  .presentation {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .my-image {
     width: 100%;
-  }
-
-  #my-picture {
-    max-width: 300px;
+    max-width: 375px;
   }
 }
 </style>

@@ -7,6 +7,7 @@ import { useEventListener } from '@/composables/event'
 
 import DarkModeToggle from '@/components/header/DarkModeToggle.vue'
 import LanguageSwitcher from '@/components/header/LanguageSwitcher.vue'
+import ScrollIndicator from '@/components/header/ScrollIndicator.vue'
 
 const isMobile = ref(false)
 const isLocked = useScrollLock(document.body)
@@ -123,7 +124,8 @@ function handleScroll() {
 
 /* NAVBAR */
 #header {
-  background-color: #2a2b3b;
+  background-image: conic-gradient(from var(--border-angle), #213, #112 50%, #213),
+    conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
   color: white;
   position: fixed; /* sticky */
   top: 0;

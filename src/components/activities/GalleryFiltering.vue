@@ -1,34 +1,30 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { activitiesInfos } from '@/data/activitiesInfos'
+import { ref } from 'vue'
+import { activitiesInfos, ActivityTheme } from '@/data/activitiesInfos'
 
 const whoToSee = ref('All')
 
-const themes = computed(() => {
-  const uniqueThemes = ['All']
-
-  activitiesInfos.filter((elem) => {
-    return !uniqueThemes.includes(elem.theme) ? uniqueThemes.push(elem.theme) : null
-  })
-
-  return uniqueThemes
-})
-
-const filterSelect = (theme: string) => {
+const filterSelect = (theme: ActivityTheme) => {
   whoToSee.value = theme
 }
 
 const openCarousel = (id: number) => {
-  emit('open-carousel', id)
+  // verify if id is in activitiesInfos
+  const activityInfo = activitiesInfos.find((elem) => elem.id === id)
+  if (activityInfo) {
+    emit('open-carousel', id)
+  }
 }
 
 const emit = defineEmits(['open-carousel'])
+
+// TODO: if id in url not found in activitiesInfos, redirect to 404
 </script>
 
 <template>
   <div class="container-btns">
     <button
-      v-for="theme in themes"
+      v-for="theme in ActivityTheme"
       :key="theme"
       class="btn"
       :class="{ active: whoToSee === theme }"
@@ -40,7 +36,7 @@ const emit = defineEmits(['open-carousel'])
   <div class="my-gallery">
     <router-link
       v-for="elem in activitiesInfos"
-      v-show="whoToSee === 'All' || elem.theme === whoToSee"
+      v-show="whoToSee === ActivityTheme.All || elem.theme === whoToSee"
       :key="elem.id"
       :to="'/activity/' + elem.id"
       class="card"
@@ -105,14 +101,19 @@ const emit = defineEmits(['open-carousel'])
 .card:hover {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   transform: translateY(-0.5rem);
+  background-color: #efe9e9;
 }
 
 .card-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .card-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #000;
@@ -126,6 +127,7 @@ const emit = defineEmits(['open-carousel'])
   opacity: 0.7;
   color: #000;
   transition: color 0.2s ease-in-out;
+  align-self: flex-end;
 }
 
 .darkMode .container-btns {
@@ -157,6 +159,7 @@ const emit = defineEmits(['open-carousel'])
 .darkMode .card:hover {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   transform: translateY(-0.5rem);
+  background-color: #444;
 }
 
 .darkMode .card-title {
@@ -165,6 +168,6 @@ const emit = defineEmits(['open-carousel'])
 
 .darkMode .card-place {
   color: #fff;
-  background-color: #333;
+  background-color: inherit;
 }
 </style>

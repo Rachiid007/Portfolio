@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="presentation">
-      <h1 class="title">
+      <h1 class="hello">
         {{ $t('presentation.hello') }} <span class="wave">👋</span> {{ $t('presentation.i_am') }}
       </h1>
       <h1 class="name">Rachid</h1>
@@ -37,13 +37,13 @@
   margin: 0;
 }
 
-.title {
+.hello {
   font-size: clamp(30px, 7vw, 35px);
   font-weight: 600;
 }
 
 .name {
-  font-size: clamp(65px, 7vw, 90px);
+  font-size: clamp(65px, 7vw, 95px);
   font-weight: 600;
 }
 
@@ -51,7 +51,7 @@
   font-size: clamp(30px, 7vw, 40px);
   color: crimson;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin: 1rem 0;
 }
 
 .my-image {

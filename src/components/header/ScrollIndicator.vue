@@ -13,13 +13,12 @@ const position = useScrollIndicator()
 /* The progress container (grey background) */
 .progress-indicator-wrapper {
   width: 100%;
-  height: 8px;
-  background: #ccc;
+  height: 3px;
 }
 
 /* The progress bar (scroll indicator) */
 .progress-indicator {
-  height: 8px;
+  height: 3px;
   background-color: crimson;
   width: 0;
 }

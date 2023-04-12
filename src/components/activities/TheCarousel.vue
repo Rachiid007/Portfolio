@@ -39,6 +39,8 @@ if (autoPlayEnabled.value) {
 // onMounted(() => {
 //   currentSlide.value = 1
 // })
+
+// TODO: when the user presses the keys: ">" or "<", trigger the carousel !
 </script>
 
 <template>

@@ -1,3 +1,4 @@
+// TODO: Try to export it ans use it in the activities page
 interface ActivityInfo {
   id: number
   theme: ActivityTheme
@@ -12,13 +13,13 @@ interface ActivityInfo {
 }
 
 export enum ActivityTheme {
+  All = 'All', // This is not a real theme, it's used for the filter in the activities page
   WebDevelopment = 'Web development',
   MobileDevelopment = 'Mobile development',
   Challenges = 'Challenges',
   Conferences = 'Conferences',
   Jobs = 'jobs',
-  ProjectsDevelopment = 'Projects development',
-  Others = 'Others'
+  ProjectsDevelopment = 'Projects development'
 }
 
 export const activitiesInfos: ActivityInfo[] = [

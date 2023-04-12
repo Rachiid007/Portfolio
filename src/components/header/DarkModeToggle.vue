@@ -24,14 +24,13 @@ const toggleDark = () => {
 </script>
 
 <template>
-  <button @click="toggleDark">
+  <button @click="toggleDark" class="btn-switch-toggle">
     <svg
-      width="200px"
-      height="94px"
       viewBox="0 0 200 94"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
+      style="max-width: 200px; max-height: 50px"
       :class="{ dark: dark }"
     >
       <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
@@ -159,7 +158,7 @@ const toggleDark = () => {
 <style scoped>
 svg {
   width: 50px;
-  height: auto;
+  height: min-content;
   margin: auto;
   padding: 0;
 }
@@ -199,5 +198,9 @@ svg:not(.dark) #stars {
 svg.dark #clouds {
   opacity: 0;
   transform: translate(54px, 17px);
+}
+
+.btn-switch-toggle {
+  cursor: pointer;
 }
 </style>

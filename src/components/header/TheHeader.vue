@@ -173,7 +173,7 @@ function handleScroll() {
 @media screen and (min-width: 601px) and (max-width: 1280px) {
   #navbar {
     width: 100%;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 0 27px; /* row-gap column gap */
   }
 
@@ -250,6 +250,7 @@ function handleScroll() {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 /* style when scroll

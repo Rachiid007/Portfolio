@@ -146,6 +146,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
   font-weight: 500;
   text-align: center;
   margin-top: 1rem;
+  background: none;
 }
 
 /* body.darkMode {

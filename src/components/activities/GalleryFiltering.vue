@@ -26,7 +26,7 @@ const emit = defineEmits(['open-carousel'])
 </script>
 
 <template>
-  <div id="containerBtns">
+  <div class="container-btns">
     <button
       v-for="theme in themes"
       :key="theme"
@@ -37,89 +37,134 @@ const emit = defineEmits(['open-carousel'])
       {{ theme }}
     </button>
   </div>
-
-  <div id="my-gallery">
-    <RouterLink
+  <div class="my-gallery">
+    <router-link
       v-for="elem in activitiesInfos"
       v-show="whoToSee === 'All' || elem.theme === whoToSee"
       :key="elem.id"
       :to="'/activity/' + elem.id"
-      class="cart"
+      class="card"
       @click="openCarousel(+elem.id)"
     >
-      <p>{{ elem.typeOfActivity }}</p>
-      <span>{{ elem.place }}</span>
-    </RouterLink>
+      <div class="card-content">
+        <h3 class="card-title">{{ elem.typeOfActivity }}</h3>
+        <p class="card-place">{{ elem.place }}</p>
+      </div>
+    </router-link>
   </div>
 </template>
 
 <style scoped>
-#containerBtns {
+.container-btns {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  margin-bottom: 2rem;
 }
+
 .btn {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #000;
   border: none;
-  outline: none;
-  padding: 12px 16px;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
-  background-color: rgb(225, 55, 89);
+  background-color: #555;
 }
 
-.btn.active {
-  background-color: crimson;
-  color: white;
+.btn.active,
+.darkMode .btn.active {
+  background-color: #555;
 }
 
-#my-gallery {
+.my-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  gap: 25px 20px;
-  justify-content: center;
-  margin: 25px auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
-#my-gallery .cart {
-  width: 100%;
-  /* height: auto; */
-  height: 200px;
-  padding: 10px;
-  background-color: rgb(51, 51, 73);
+.card {
   position: relative;
-}
-
-#my-gallery .cart:hover {
-  background-color: rgb(231, 70, 102);
-  transition: all 0.5s ease-in-out;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  background-color: #fff;
+  color: #000;
   cursor: pointer;
 }
 
-#my-gallery .cart p {
-  /*all: initial; */
-  background-color: initial;
-  font-size: 1.1em;
-  color: white;
+.card:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.5rem);
 }
 
-#my-gallery .cart span {
-  font-size: 1em;
-  color: white;
-  font-weight: 500;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.card-content {
+  padding: 1.5rem;
 }
 
-/* @keyframes appear {
-  to {
-    width: 100%;
-    opacity: 1;
-  }
-} */
+.card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #000;
+  transition: color 0.2s ease-in-out;
+}
+
+.card-place {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  opacity: 0.7;
+  color: #000;
+  transition: color 0.2s ease-in-out;
+}
+
+.darkMode .container-btns {
+  border-bottom: 1px solid #ccc;
+}
+
+.darkMode .btn {
+  color: #fff;
+  background-color: #000;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.darkMode .btn:hover {
+  background-color: #555;
+}
+
+.darkMode .btn.active,
+.darkMode .btn:active {
+  background-color: #555;
+}
+
+.darkMode .card {
+  background-color: #333;
+
+  color: #fff;
+}
+
+.darkMode .card:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.5rem);
+}
+
+.darkMode .card-title {
+  color: #fff;
+}
+
+.darkMode .card-place {
+  color: #fff;
+  background-color: #333;
+}
 </style>

@@ -8,7 +8,6 @@ const autoPlayEnabled = ref(props.startAutoPlay === undefined ? true : props.sta
 const timeoutDuration = ref(props.timeout === undefined ? 5000 : props.timeout)
 const navEnabled = computed(() => props.slidesList.length > 1)
 
-// next slide
 const nextSlide = () => {
   if (currentSlide.value === props.slidesList.length) {
     currentSlide.value = 1
@@ -16,14 +15,15 @@ const nextSlide = () => {
   }
   currentSlide.value += 1
 }
-// prev slide
-const prevSlide = () => {
+
+const previousSlide = () => {
   if (currentSlide.value === 1) {
-    currentSlide.value = 1
+    currentSlide.value = props.slidesList.length
     return
   }
   currentSlide.value -= 1
 }
+
 const goToSlide = (index: number) => {
   currentSlide.value = index + 1
 }
@@ -48,7 +48,7 @@ if (autoPlayEnabled.value) {
     <!-- Navigation -->
     <div v-if="navEnabled" class="navigate">
       <div class="toggle-page left">
-        <i class="fas fa-chevron-left" @click="prevSlide"></i>
+        <i class="fas fa-chevron-left" @click="previousSlide"></i>
       </div>
       <div class="toggle-page right">
         <i class="fas fa-chevron-right" @click="nextSlide"></i>

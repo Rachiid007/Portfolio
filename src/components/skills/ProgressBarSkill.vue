@@ -5,21 +5,31 @@ defineProps({
 </script>
 
 <template>
-  <div class="line">
-    <div class="progress" :style="{ width: level + '%' }"></div>
+  <div class="progress-bar">
+    <div class="progress-container">
+      <div class="progress-bar-fill" :style="{ width: level + '%' }"></div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.line {
-  height: 17px;
+.progress-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.progress-container {
+  height: 10px;
   width: 100%;
   background: lightgrey;
   border-radius: 5px;
 }
-.progress {
+
+.progress-bar-fill {
   height: 100%;
-  background: crimson;
+  background: linear-gradient(90deg, rgb(167, 88, 199) 0%, rgba(220, 20, 60, 1) 50%);
   border-radius: 5px;
+  transition: width 1s ease-in-out;
 }
 </style>

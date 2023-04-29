@@ -8,7 +8,7 @@
   "presentation": {
     "hello": "Hello,",
     "i_am": "I'm",
-    "position": "Software Developer",
+    "position": "IT Student",
     "contact_me": "Contact me"
   },
   "about": {
@@ -18,7 +18,9 @@
     "download_cv": "Download my resume"
   },
   "skills": {
-    "title": "Skills"
+    "title": "Skills",
+    "programming_languages": "Programming languages",
+    "System_administration": "System and Network Administration."
   },
   "activities": {
     "title": "Activities",

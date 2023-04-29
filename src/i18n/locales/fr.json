@@ -8,7 +8,7 @@
   "presentation": {
     "hello": "Bonjour,",
     "i_am": "Je suis",
-    "position": "Développeur",
+    "position": "Étudiant en informatique",
     "contact_me": "Contactez-moi"
   },
   "about": {
@@ -18,7 +18,9 @@
     "download_cv": "Télécharger mon CV"
   },
   "skills": {
-    "title": "Compétences"
+    "title": "Compétences",
+    "programming_languages": "Langages de programmation",
+    "System_administration": "Administration des systèmes et réseaux"
   },
   "activities": {
     "title": "Activités",

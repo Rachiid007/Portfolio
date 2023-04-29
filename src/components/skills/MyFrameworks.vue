@@ -6,7 +6,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
 
 <template>
   <div id="frameworks">
-    <h2 class="sub-title">Programming languages</h2>
+    <h2 class="sub-title">{{ $t('skills.programming_languages') }}</h2>
     <div class="container">
       <div class="child">
         <img
@@ -44,11 +44,6 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
     <h2 class="sub-title">DevOps</h2>
     <div class="container">
       <div class="child">
-        <img alt="Linux logo" class="logo" src="@/assets/skills/linux.svg" />
-        <p class="name">Linux</p>
-        <progress-bar-skill :level="70" />
-      </div>
-      <div class="child">
         <img alt="git logo" class="logo" src="@/assets/skills/git.svg" />
         <p class="name">Git</p>
         <progress-bar-skill :level="80" />
@@ -68,6 +63,24 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
         <h1 class="name">GitHub Action</h1>
         <progress-bar-skill :level="60" />
       </div>
+    </div>
+    <h2 class="sub-title">{{ $t('skills.System_administration') }}</h2>
+    <div class="container">
+      <div class="child">
+        <img alt="Linux logo" class="logo" src="@/assets/skills/linux.svg" />
+        <p class="name">Linux</p>
+        <progress-bar-skill :level="70" />
+      </div>
+      <div class="child">
+        <img alt="Windows logo" class="logo" src="@/assets/skills/windows.svg" />
+        <h1 class="name">Windows Server</h1>
+        <progress-bar-skill :level="40" />
+      </div>
+      <!-- <div class="child">
+        <img alt="Cisco logo" class="logo" src="@/assets/skills/cisco.svg" />
+        <h1 class="name">Cisco</h1>
+        <progress-bar-skill :level="60" />
+      </div> -->
     </div>
   </div>
 </template>

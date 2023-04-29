@@ -82,7 +82,7 @@ const emit = defineEmits(['open-carousel'])
 
 .my-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   gap: 2rem;
   margin-bottom: 4rem;
 }

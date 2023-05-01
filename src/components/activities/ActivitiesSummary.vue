@@ -40,11 +40,11 @@
         <td>5</td>
         <td>40</td>
         <td>
-          <RouterLink
-            to="https://www.freecodecamp.org/certification/Rachid007/back-end-development-and-apis"
+          <a
+            href="https://www.freecodecamp.org/certification/Rachid007/back-end-development-and-apis"
             target="_blank"
             ><i class="fa-solid fa-arrow-up-right-from-square"></i
-          ></RouterLink>
+          ></a>
         </td>
       </tr>
       <tr class="dev-web">
@@ -56,12 +56,12 @@
         <td>5</td>
         <td>60</td>
         <td>
-          <RouterLink
-            to="https://www.freecodecamp.org/certification/Rachid007/javascript-algorithms-and-data-structures"
+          <a
+            href="https://www.freecodecamp.org/certification/Rachid007/javascript-algorithms-and-data-structures"
             target="_blank"
           >
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </RouterLink>
+          </a>
         </td>
       </tr>
       <!-- Empty line -->
@@ -156,9 +156,9 @@
         <td>10</td>
         <td>60</td>
         <td>
-          <RouterLink to="https://github.com/Rachiid007/Portfolio" target="_blank"
+          <a href="https://github.com/Rachiid007/Portfolio" target="_blank"
             ><i class="fa-solid fa-arrow-up-right-from-square"></i
-          ></RouterLink>
+          ></a>
         </td>
       </tr>
     </tbody>

@@ -147,13 +147,13 @@ export const activitiesInfos: ActivityInfo[] = [
   {
     id: 11,
     theme: ActivityTheme.Jobs,
-    typeOfActivity: 'Uber Eats, Bpost et BK',
+    typeOfActivity: 'Uber Eats, Bpost et Burger King',
     place: 'Brussels',
-    dates: '2021-2022',
+    dates: '2020-2023',
     toValorise: 0,
     real: 500,
     evidence: 'x',
-    img: ['jobs-01.jpg'],
+    img: ['Jobs_Bpost_selfie.jpg', 'Jobs_Uber_Screenshot_my_profile.jpg'],
     description: "Cette activité m'as permis d'apprendre..."
   },
   {
@@ -167,7 +167,29 @@ export const activitiesInfos: ActivityInfo[] = [
     evidence: 'https://github.com/Rachiid007/Portfolio',
     img: ['portfolio-01.png'],
     description: "Cette activité m'as permis d'apprendre..."
+  },
+  {
+    id: 13,
+    theme: ActivityTheme.Challenges,
+    typeOfActivity: 'Hackathon EPHEC 2022',
+    place: 'EPHEC',
+    dates: 'October 2022',
+    toValorise: 5,
+    real: 48,
+    evidence: 'x',
+    img: ['Ephec_hackathon_2022-01.png', 'Ephec_hackathon_2022-02.png'],
+    description: "Cette activité m'as permis d'apprendre..."
+  },
+  {
+    id: 14,
+    theme: ActivityTheme.Challenges,
+    typeOfActivity: "Hack'n WOW #2",
+    place: 'Centre Culturel de La Marlagne (Namur)',
+    dates: 'March 2023',
+    toValorise: 5,
+    real: 72,
+    evidence: 'x',
+    img: ['HacknWOW-01.jpg', 'HacknWOW-02.jpg'],
+    description: "Cette activité m'as permis d'apprendre..."
   }
 ]
-
-// TODO: add Hackathon EPHEC 2022, Hack'n WOW #2

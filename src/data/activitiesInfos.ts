@@ -160,7 +160,7 @@ export const activitiesInfos: ActivityInfo[] = [
     id: 12,
     theme: ActivityTheme.ProjectsDevelopment,
     typeOfActivity: 'Realization of my Portfolio',
-    place: '-',
+    place: 'Europe',
     dates: 'de août 22 à mai 23',
     toValorise: 10,
     real: 99,

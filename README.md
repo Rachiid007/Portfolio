@@ -1,6 +1,6 @@
 # Portfolio
 
-[![CI/CD Pipeline](https://github.com/Rachiid007/Portfolio/actions/workflows/cicd.yml/badge.svg)](https://github.com/Rachiid007/Portfolio/actions/workflows/cicd.yml)
+[![CI/CD Pipeline](https://github.com/Rachiid007/Portfolio/actions/workflows/cicd.yml/badge.svg)](https://github.com/Rachiid007/Portfolio/actions/workflows/cd.yml)
 
 This template should help get you started developing with Vue 3 in Vite.
 

@@ -75,17 +75,25 @@
         <td>Août-22</td>
         <td>10</td>
         <td>20</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/3" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <!-- Empty line -->
       <tr class="challenge">
-        <th rowspan="4">{{ $t('activities.table.challenges') }}</th>
+        <th rowspan="5">{{ $t('activities.table.challenges') }}</th>
         <td>Hackathon Ephec 2021</td>
         <td>Ephec</td>
         <td>nov-21</td>
         <td>5</td>
         <td>48</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/4" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <tr class="challenge">
         <td>Hackathon Odoo 2022</td>
@@ -93,7 +101,11 @@
         <td>avr-22</td>
         <td>5</td>
         <td>48</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/5" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <tr class="challenge">
         <td>Capture The Flag Ephec 2022</td>
@@ -101,7 +113,11 @@
         <td>Fév-22</td>
         <td>0</td>
         <td>12</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/6" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <tr class="challenge">
         <td>Open Week 2022</td>
@@ -109,7 +125,23 @@
         <td>juin-22</td>
         <td>0</td>
         <td>35</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/7" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
+      </tr>
+      <tr class="challenge">
+        <td>Hack'n WOW #2</td>
+        <td>Namur</td>
+        <td>22/03 - 24/03</td>
+        <td>0</td>
+        <td>72</td>
+        <td>
+          <router-link to="/activity/14" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <!-- Empty line -->
       <tr class="conference">
@@ -119,7 +151,11 @@
         <td>23/11/2021</td>
         <td>10</td>
         <td>10</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/8" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <!-- Empty line -->
       <tr class="job">
@@ -129,7 +165,11 @@
         <td>de fév à mai 22</td>
         <td>5</td>
         <td>12</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/9" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <tr class="job">
         <td>Salon SIEP 2021</td>
@@ -137,7 +177,11 @@
         <td>26 et 27 nov. 22</td>
         <td>5</td>
         <td>12</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/10" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <tr class="job">
         <td>Uber Eats, Bpost et BK</td>
@@ -145,13 +189,17 @@
         <td>2021-2022</td>
         <td>0</td>
         <td>500+</td>
-        <td>XXXX</td>
+        <td>
+          <router-link to="/activity/11" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </router-link>
+        </td>
       </tr>
       <!-- Empty line -->
       <tr class="projet-perso">
         <th>{{ $t('activities.table.projects_dev') }}</th>
         <td>{{ $t('activities.table.realization_portfolio') }}</td>
-        <td>-</td>
+        <td>Europe</td>
         <td>de août 22 à mai 23</td>
         <td>10</td>
         <td>60</td>

@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-</script>
-
 <template>
   <div id="container">
     <h1>Oops!</h1>

@@ -81,7 +81,7 @@ export const activitiesInfos: ActivityInfo[] = [
     toValorise: 5,
     real: 48,
     evidence: 'x',
-    img: ['Odoo_hackathon_01.jpg', 'Odoo_hackathon_02.jpg'],
+    img: ['Odoo_hackathon_01.jpg', 'Odoo_hackathon_02.jpg', 'Odoo_hackathon_04.jpg'],
     description: "Cette activité m'as permis d'apprendre..."
   },
   {

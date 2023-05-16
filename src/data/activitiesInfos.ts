@@ -153,7 +153,7 @@ export const activitiesInfos: ActivityInfo[] = [
     toValorise: 0,
     real: 500,
     evidence: 'x',
-    img: ['Jobs_Bpost_selfie.jpg', 'Jobs_Uber_Screenshot_my_profile.jpg'],
+    img: ['Jobs_Bpost_selfie.jpg', 'Jobs_Uber_Screenshot_my_profile.jpg', 'Jobs_Bpost_02.jpg'],
     description: "Cette activité m'as permis d'apprendre..."
   },
   {
@@ -189,7 +189,7 @@ export const activitiesInfos: ActivityInfo[] = [
     toValorise: 5,
     real: 72,
     evidence: 'x',
-    img: ['HacknWOW-01.jpg', 'HacknWOW-02.jpg'],
+    img: ['HacknWOW-01.jpg', 'HacknWOW-02.jpg', 'HacknWOW-03.jpg'],
     description: "Cette activité m'as permis d'apprendre..."
   }
 ]

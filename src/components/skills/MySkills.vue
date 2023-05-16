@@ -5,7 +5,10 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
 </script>
 
 <template>
-  <div id="frameworks">
+  <article id="skills" ref="skillsContent">
+    <h2 id="test-skills" ref="skillsPos" class="title">
+      {{ $t('skills.title') }}
+    </h2>
     <h2 class="sub-title">{{ $t('skills.programming_languages') }}</h2>
     <div class="container">
       <div class="child">
@@ -82,7 +85,7 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
         <progress-bar-skill :level="60" />
       </div> -->
     </div>
-  </div>
+  </article>
 </template>
 
 <style scoped>

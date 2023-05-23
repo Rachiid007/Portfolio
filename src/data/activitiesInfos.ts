@@ -33,7 +33,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 40,
     evidence: 'https://www.freecodecamp.org/certification/Rachid007/back-end-development-and-apis',
     img: ['Back_end_developement_and_API.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "J'ai acquis une solide compréhension du fonctionnement d'une application Node.js et Express.js, ce qui s'est avéré extrêmement bénéfique lors de mon stage et de mon projet d'intégration."
   },
   {
     id: 2,
@@ -46,7 +47,8 @@ export const activitiesInfos: ActivityInfo[] = [
     evidence:
       'https://www.freecodecamp.org/certification/Rachid007/javascript-algorithms-and-data-structures',
     img: ['JavaScript_Algorithms_and_Data_Structures.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Grâce à cette formation, j'ai pu consolider mes compétences en JavaScript et développer une solide maîtrise de la résolution de problèmes algorithmiques."
   },
   {
     id: 3,
@@ -58,7 +60,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 22,
     evidence: 'x',
     img: ['OpenClassroom_developpez-votre-première-application-android.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Grâce à cette formation, j'ai pu acquérir une première approche du développement mobile."
   },
   {
     id: 4,
@@ -70,7 +73,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 48,
     evidence: 'x',
     img: ['Ephec_hackathon_01.jpg', 'Ephec_hackathon_02.jpg', 'Ephec_hackathon_03.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Il s'agit de ma première participation à un hackathon, et cela m'a permis de découvrir le fonctionnement de cet événement stimulant. J'ai eu l'opportunité d'apprendre de nombreuses choses, notamment l'utilisation de la bibliothèque leaflet.js et OpenStreetMap pour afficher une carte sur un site web."
   },
   {
     id: 5,
@@ -82,7 +86,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 48,
     evidence: 'x',
     img: ['Odoo_hackathon_01.jpg', 'Odoo_hackathon_02.jpg', 'Odoo_hackathon_04.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Le hackathon Odoo était mon deuxième, et j'ai eu l'opportunité de participer avec deux autres étudiants de notre section. Cette expérience a été extrêmement enrichissante, car elle nous a permis de confronter nos compétences à celles des professionnels présents."
   },
   {
     id: 6,
@@ -94,7 +99,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 12,
     evidence: 'x',
     img: ['Capture_The_Flag-01.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Grâce à ma participation au CTF organisé à l'EPHEC, j'ai pu véritablement découvrir cet univers."
   },
   {
     id: 7,
@@ -106,7 +112,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 38,
     evidence: 'x',
     img: ['Open_Week-01.jpg', 'Open_Week-02.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Pendant une semaine, j'ai eu l'opportunité de développer un module de covoiturage destiné aux employés d'Odoo. Cette expérience a été extrêmement enrichissante, car j'ai pu collaborer avec des étudiants de l'UCL qui ont une approche plus orientée vers l'analyse et la recherche, contrairement à ma tendance à vouloir produire rapidement quelque chose."
   },
   {
     id: 8,
@@ -118,7 +125,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 10,
     evidence: 'x',
     img: ['DevDay-01.jpg', 'DevDay-02.jpg', 'DevDay-03.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Il s'agit de ma première participation à une conférence destinée aux développeurs, et cette expérience a été extrêmement enrichissante. J'ai eu l'occasion de découvrir de nouvelles technologies passionnantes et d'explorer des concepts innovants."
   },
   {
     id: 9,
@@ -130,7 +138,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 12,
     evidence: 'x',
     img: ['Tutor_programmation-01.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "J'ai eu la chance de partager mes connaissances en programmation avec des étudiants de première année en TI et e-Business. Cette expérience m'a permis d'affiner mes compétences en vulgarisation, en transformant des concepts complexes en explications simples et accessibles."
   },
   {
     id: 10,
@@ -142,7 +151,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 12,
     evidence: 'x',
     img: ['Salon_SIEP-01.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "J'ai eu l'occation de représenter notre section à plusieurs reprises lors du salon SIEP."
   },
   {
     id: 11,
@@ -154,7 +164,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 500,
     evidence: 'x',
     img: ['Jobs_Bpost_selfie.jpg', 'Jobs_Uber_Screenshot_my_profile.jpg', 'Jobs_Bpost_02.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "J'ai effectué plusieurs jobs étudiants afin de financer mes études, notamment chez Uber Eats, Bpost et Burger King."
   },
   {
     id: 12,
@@ -166,7 +177,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 99,
     evidence: 'https://github.com/Rachiid007/Portfolio',
     img: ['portfolio-01.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Ce portfolio est le résultat de mon travail acharné et de mes recherches approfondies. Grâce à ce projet, j'ai pu acquérir une solide maîtrise des frameworks Vue.js et Nuxt.js. De plus, j'ai eu l'opportunité de consolider mes connaissances en HTML, CSS et JavaScript."
   },
   {
     id: 13,
@@ -178,7 +190,8 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 48,
     evidence: 'x',
     img: ['Ephec_hackathon_2022-01.png', 'Ephec_hackathon_2022-02.png'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Cette activité m'a permis d'apprendre à travailler en groupe avec des personnes qui ont une vision différente de la mienne."
   },
   {
     id: 14,
@@ -190,6 +203,7 @@ export const activitiesInfos: ActivityInfo[] = [
     real: 72,
     evidence: 'x',
     img: ['HacknWOW-01.jpg', 'HacknWOW-02.jpg', 'HacknWOW-03.jpg'],
-    description: "Cette activité m'as permis d'apprendre..."
+    description:
+      "Grâce à ma participation à ce Hackathon, j'ai eu la chance de découvrir l'ETNIC et de créer une application qui permet de mettre en relation les personnes intéressées par le sport et la culture. Cette expérience m'a également offert une opportunité unique : j'ai reçu une proposition d'emploi en tant que développeur. De plus, j'ai eu l'occasion d'assister à des présentations passionnantes sur Open IA et les Microservices, tout en échangeant avec des professionnels du domaine. Sans aucun doute, il s'agit du meilleur Hackathon auquel j'ai participé."
   }
 ]

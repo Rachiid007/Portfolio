@@ -111,7 +111,7 @@ export const activitiesInfos: ActivityInfo[] = [
     toValorise: 0,
     real: 38,
     evidence: 'x',
-    img: ['Open_Week-01.jpg', 'Open_Week-02.jpg'],
+    img: ['Open_Week-01.jpg', 'Open_Week-02.jpg, Open_Week-03'],
     description:
       "Pendant une semaine, j'ai eu l'opportunité de développer un module de covoiturage destiné aux employés d'Odoo. Cette expérience a été extrêmement enrichissante, car j'ai pu collaborer avec des étudiants de l'UCL qui ont une approche plus orientée vers l'analyse et la recherche, contrairement à ma tendance à vouloir produire rapidement quelque chose."
   },

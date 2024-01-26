@@ -60,14 +60,14 @@ const languages = computed(() => {
     if (key === locale.value) {
       // create an object who has the key active
       myObj.active = {
-        name: availableLanguage[key].name,
-        flag: availableLanguage[key].flag
+        name: availableLanguage[key as 'fr' | 'en'].name,
+        flag: availableLanguage[key as 'fr' | 'en'].flag
       }
     } else {
       // create an object who has the key not active
       myObj.notActive = {
-        name: availableLanguage[key].name,
-        flag: availableLanguage[key].flag
+        name: availableLanguage[key as 'fr' | 'en'].name,
+        flag: availableLanguage[key as 'fr' | 'en'].flag
       }
     }
   }

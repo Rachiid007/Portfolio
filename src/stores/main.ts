@@ -10,13 +10,13 @@ export const useMainStore = defineStore({
   },
 
   getters: {
-    getPosOfElems() {
+    getPosOfElems(): number[] {
       return this.posOfElems
     }
   },
 
   actions: {
-    setPosOfElems(key, value) {
+    setPosOfElems(key: number, value: number) {
       this.posOfElems[key] = value
     }
   }

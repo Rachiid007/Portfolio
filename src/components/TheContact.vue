@@ -8,6 +8,18 @@ const formInfos = ref({
   message: ''
 })
 
+const showMessage = ref(false)
+
+const isFormComplete = () => {
+  const { name, email, subject, message } = formInfos.value
+
+  if (name && email && subject && message) {
+    showMessage.value = true
+  } else {
+    showMessage.value = false
+  }
+}
+
 // const contactPos = ref(null)
 
 // const contactContent = ref(null)
@@ -33,9 +45,7 @@ const formInfos = ref({
 
           <div class="row">
             <i class="fa-solid fa-location-dot fa-lg"></i>
-            <address class="sub-title">
-              Rue des Quatre-Vents 94<br />1080 {{ $t('contact.infos.city') }}
-            </address>
+            <address class="sub-title">{{ $t('contact.infos.city') }}</address>
           </div>
 
           <div class="row">
@@ -51,7 +61,7 @@ const formInfos = ref({
           </div>
 
           <div id="icons-social-network" class="row">
-            <a href="https://www.linkedin.com/in/abderrachid-bellaali-753471145" target="_blank">
+            <a href="https://www.linkedin.com/in/abderrachid-bellaali/" target="_blank">
               <i class="fa-brands fa-linkedin fa-2xl"></i>
             </a>
             <a href="https://github.com/Rachiid007" target="_blank">
@@ -113,9 +123,12 @@ const formInfos = ref({
             ></textarea>
           </div>
           <div>
-            <button class="button-custom" type="submit">
+            <button @click.prevent="isFormComplete" class="button-custom" type="submit">
               {{ $t('contact.send') }}
             </button>
+          </div>
+          <div v-if="showMessage">
+            Please email me at my address because there is currently a problem with the server!
           </div>
         </form>
       </section>

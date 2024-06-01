@@ -6,9 +6,9 @@
     "contact": "Contact"
   },
   "presentation": {
-    "hello": "Bonjour,",
+    "hello": "Hey,",
     "i_am": "je suis",
-    "position": "Étudiant en informatique",
+    "position": "System Engineer",
     "contact_me": "Contactez-moi"
   },
   "about": {

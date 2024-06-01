@@ -72,12 +72,12 @@ import ProgressBarSkill from './ProgressBarSkill.vue'
       <div class="child">
         <img alt="Linux logo" class="logo" src="@/assets/skills/linux.svg" />
         <p class="name">Linux</p>
-        <progress-bar-skill :level="70" />
+        <progress-bar-skill :level="60" />
       </div>
       <div class="child">
         <img alt="Windows logo" class="logo" src="@/assets/skills/windows.svg" />
         <h1 class="name">Windows Server</h1>
-        <progress-bar-skill :level="40" />
+        <progress-bar-skill :level="75" />
       </div>
       <!-- <div class="child">
         <img alt="Cisco logo" class="logo" src="@/assets/skills/cisco.svg" />

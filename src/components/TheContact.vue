@@ -53,13 +53,6 @@ const isFormComplete = () => {
             <div class="sub-title">abderrachid.bellaali@gmail.com</div>
           </div>
 
-          <div class="row">
-            <i class="fa-solid fa-phone fa-lg"></i>
-            <div class="sub-title">
-              <a href="tel:+32484818944">+32 484 818 944</a>
-            </div>
-          </div>
-
           <div id="icons-social-network" class="row">
             <a href="https://www.linkedin.com/in/abderrachid-bellaali/" target="_blank">
               <i class="fa-brands fa-linkedin fa-2xl"></i>

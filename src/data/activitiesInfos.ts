@@ -85,7 +85,7 @@ export const activitiesInfos: ActivityInfo[] = [
     toValorise: 5,
     real: 48,
     evidence: 'x',
-    img: ['Odoo_hackathon_01.jpg', 'Odoo_hackathon_02.jpg', 'Odoo_hackathon_04.jpg'],
+    img: ['Odoo_hackathon_01.jpg', 'Odoo_hackathon_02.jpg', 'Odoo_hackathon_03.jpg', 'Odoo_hackathon_04.jpg'],
     description:
       "Le hackathon Odoo était mon deuxième, et j'ai eu l'opportunité de participer avec deux autres étudiants de notre section. Cette expérience a été extrêmement enrichissante, car elle nous a permis de confronter nos compétences à celles des professionnels présents."
   },
@@ -111,7 +111,7 @@ export const activitiesInfos: ActivityInfo[] = [
     toValorise: 0,
     real: 38,
     evidence: 'x',
-    img: ['Open_Week-01.jpg', 'Open_Week-02.jpg, Open_Week-03'],
+    img: ['Open_Week-01.jpg', 'Open_Week-02.jpg', 'Open_Week-03.png'],
     description:
       "Pendant une semaine, j'ai eu l'opportunité de développer un module de covoiturage destiné aux employés d'Odoo. Cette expérience a été extrêmement enrichissante, car j'ai pu collaborer avec des étudiants de l'UCL qui ont une approche plus orientée vers l'analyse et la recherche, contrairement à ma tendance à vouloir produire rapidement quelque chose."
   },

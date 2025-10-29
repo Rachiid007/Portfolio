@@ -8,15 +8,16 @@ const filterSelect = (theme: ActivityTheme) => {
   whoToSee.value = theme
 }
 
+const emit = defineEmits<{
+  (event: 'open-carousel', id: number): void
+}>()
+
 const openCarousel = (id: number) => {
-  // verify if id is in activitiesInfos
   const activityInfo = activitiesInfos.find((elem) => elem.id === id)
   if (activityInfo) {
     emit('open-carousel', id)
   }
 }
-
-const emit = defineEmits(['open-carousel'])
 
 // TODO: if id in url not found in activitiesInfos, redirect to 404
 </script>

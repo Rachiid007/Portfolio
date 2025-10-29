@@ -1,97 +1,102 @@
 <script setup lang="ts">
-import { ref, onUpdated } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useScrollLock } from '@vueuse/core'
-import { useMainStore } from '@/stores/main'
-import { useEventListener } from '@/composables/event'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { useScrollLock, useEventListener } from '@vueuse/core'
 
 import DarkModeToggle from '@/components/header/DarkModeToggle.vue'
 import LanguageSwitcher from '@/components/header/LanguageSwitcher.vue'
 import ScrollIndicator from '@/components/header/ScrollIndicator.vue'
 
-const isMobile = ref(false)
-const isLocked = useScrollLock(document.body)
+const isMenuOpen = ref(false)
+const activeSection = ref<string | null>(null)
 
-onUpdated(() => {
-  if (isMobile.value) {
-    isLocked.value = true
-  } else {
-    isLocked.value = false
-  }
+const isLocked = useScrollLock(() => document?.body ?? null)
+
+watch(isMenuOpen, (value) => {
+  isLocked.value = value
 })
 
 const toggleActiveMenu = () => {
-  isMobile.value = !isMobile.value
+  isMenuOpen.value = !isMenuOpen.value
 }
 
-const listLinks = [
-  {
-    name: 'header.about',
-    path: '#about'
-  },
-  {
-    name: 'header.skills',
-    path: '#skills'
-  },
-  {
-    name: 'header.activities',
-    path: '#activities'
-  },
-  {
-    name: 'header.contact',
-    path: '#contact'
+const handleNavClick = () => {
+  if (isMenuOpen.value) {
+    isMenuOpen.value = false
   }
+}
+
+const links = [
+  { name: 'header.about', path: '#about', id: 'about' },
+  { name: 'header.skills', path: '#skills', id: 'skills' },
+  { name: 'header.activities', path: '#activities', id: 'activities' },
+  { name: 'header.contact', path: '#contact', id: 'contact' }
 ]
 
-const store = useMainStore()
+let observer: IntersectionObserver | undefined
 
-// storeToRefs lets todoList keep reactivity:
-const { posOfElems } = storeToRefs(store)
+const registerSections = () => {
+  const sections = links
+    .map((link) => document.getElementById(link.id))
+    .filter((section): section is HTMLElement => Boolean(section))
 
-useEventListener(window, 'scroll', handleScroll)
-
-const savedIndex = ref<number>(-1)
-function handleScroll() {
-  const trigger = window.scrollY + window.innerHeight / 1.9
-
-  for (const i of posOfElems.value) {
-    const index = posOfElems.value.indexOf(i)
-
-    if (trigger >= posOfElems.value[index] && trigger < posOfElems.value[index + 1]) {
-      if (index !== savedIndex.value) {
-        savedIndex.value = index
-      }
-      break
-    }
-
-    if (index === posOfElems.value.length - 1 && trigger >= posOfElems.value[index]) {
-      if (index !== savedIndex.value) {
-        savedIndex.value = index
-      }
-    }
-
-    if (trigger < posOfElems.value[0]) {
-      //! out of range psk personne a -1 donc personne aura la class 'marked'
-      savedIndex.value = -1
-    }
+  if (!sections.length) {
+    return
   }
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    {
+      root: null,
+      threshold: 0.4
+    }
+  )
+
+  sections.forEach((section) => observer?.observe(section))
 }
+
+onMounted(() => {
+  registerSections()
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  observer = undefined
+  isLocked.value = false
+})
+
+useEventListener(window, 'scroll', () => {
+  if (window.scrollY < 80) {
+    activeSection.value = null
+  }
+})
+
+useEventListener(window, 'resize', () => {
+  if (window.innerWidth > 601 && isMenuOpen.value) {
+    isMenuOpen.value = false
+  }
+})
 </script>
 
 <template>
-  <header id="header" :class="{ mobile: isMobile }" role="banner">
+  <header id="header" :class="{ mobile: isMenuOpen }" role="banner">
     <div id="navbar-content" class="max-width">
       <a id="myLogo" href="#" aria-label="visit homepage" aria-current="page">
         <img src="@/assets/logo.svg" alt="logo" />
       </a>
       <nav id="navbar" role="navigation">
         <a
-          v-for="(link, index) in listLinks"
+          v-for="(link, index) in links"
           :key="index"
-          :class="{ marked: index == savedIndex }"
+          :class="{ marked: link.id === activeSection }"
           :href="link.path"
-          aria-current="page"
-          v-on="isMobile ? { click: toggleActiveMenu } : {}"
+          :aria-current="link.id === activeSection ? 'location' : undefined"
+          @click="handleNavClick"
         >
           {{ $t(link.name) }}
         </a>
@@ -104,7 +109,7 @@ function handleScroll() {
 
       <i
         id="bars"
-        :class="{ mobile: isMobile }"
+        :class="{ mobile: isMenuOpen }"
         class="fa-solid fa-bars fa-2xl"
         @click="toggleActiveMenu"
       ></i>

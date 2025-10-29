@@ -1,5 +1,5 @@
 <template>
-  <table aria-hidden="true">
+  <table>
     <caption>
       {{
         $t('activities.summary')
@@ -33,7 +33,7 @@
 
     <tbody>
       <tr class="dev-web">
-        <th rowspan="2">{{ $t('activities.table.web_dev') }}</th>
+        <th scope="rowgroup" rowspan="2">{{ $t('activities.table.web_dev') }}</th>
         <td>{{ $t('activities.table.online_training') }} "Back End Development and APIs"</td>
         <td>FreeCodeCamp</td>
         <td>janv-22</td>
@@ -66,7 +66,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="dev-mobile">
-        <th>{{ $t('activities.table.mobile_dev') }}</th>
+        <th scope="row">{{ $t('activities.table.mobile_dev') }}</th>
         <td>
           {{ $t('activities.table.online_training') }} "Développez votre première application
           Android"
@@ -83,7 +83,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="challenge">
-        <th rowspan="5">{{ $t('activities.table.challenges') }}</th>
+        <th scope="rowgroup" rowspan="5">{{ $t('activities.table.challenges') }}</th>
         <td>Hackathon Ephec 2021</td>
         <td>Ephec</td>
         <td>nov-21</td>
@@ -145,7 +145,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="conference">
-        <th>{{ $t('activities.table.conferences') }}</th>
+        <th scope="row">{{ $t('activities.table.conferences') }}</th>
         <td>DevDay 2021</td>
         <td>Cinéscope LLN</td>
         <td>23/11/2021</td>
@@ -159,7 +159,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="job">
-        <th rowspan="3">{{ $t('activities.table.work') }}</th>
+        <th scope="rowgroup" rowspan="3">{{ $t('activities.table.work') }}</th>
         <td>{{ $t('activities.table.tutor') }} programmation</td>
         <td>-</td>
         <td>de fév à mai 22</td>
@@ -197,7 +197,7 @@
       </tr>
       <!-- Empty line -->
       <tr class="projet-perso">
-        <th>{{ $t('activities.table.projects_dev') }}</th>
+        <th scope="row">{{ $t('activities.table.projects_dev') }}</th>
         <td>{{ $t('activities.table.realization_portfolio') }}</td>
         <td>Europe</td>
         <td>de août 22 à mai 23</td>

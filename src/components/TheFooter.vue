@@ -5,7 +5,7 @@
       <a aria-current="page" href="#">Abderrachid BELLAALI</a>
       |
       <i class="fa-solid fa-copyright"></i>
-      2023 {{ $t('footer.rights') }}.
+      2022 {{ $t('footer.rights') }}.
     </p>
   </footer>
 </template>

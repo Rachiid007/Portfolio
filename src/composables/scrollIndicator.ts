@@ -6,7 +6,9 @@ const percentage = ref('0%')
 export function useScrollIndicator() {
   useEventListener(window, 'scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement
-    percentage.value = `${(scrollTop / (scrollHeight - clientHeight)) * 100}%`
+    const progress = (scrollTop / Math.max(scrollHeight - clientHeight, 1)) * 100
+    const clamped = Math.min(Math.max(progress, 0), 100)
+    percentage.value = `${clamped.toFixed(2)}%`
   })
 
   return percentage

@@ -8,22 +8,22 @@ const formInfos = ref({
   message: ''
 })
 
-const showMessage = ref(false)
+const feedbackMessage = ref('')
+const feedbackVariant = ref<'error' | 'info' | ''>('')
 
-const isFormComplete = () => {
+const handleSubmit = () => {
   const { name, email, subject, message } = formInfos.value
 
-  if (name && email && subject && message) {
-    showMessage.value = true
-  } else {
-    showMessage.value = false
+  if (!name || !email || !subject || !message) {
+    feedbackMessage.value = 'Please fill out every field before sending your message.'
+    feedbackVariant.value = 'error'
+    return
   }
+
+  feedbackMessage.value =
+    'Please email me at the address above—there is currently an issue with the server.'
+  feedbackVariant.value = 'info'
 }
-
-// const contactPos = ref(null)
-
-// const contactContent = ref(null)
-// resiveScrollspy(3, contactContent, contactPos)
 </script>
 
 <template>
@@ -73,30 +73,35 @@ const isFormComplete = () => {
       <section class="column right" role="region">
         <h3 class="text">{{ $t('contact.sendMessage') }}</h3>
 
-        <form action="#" role="form">
+        <form action="#" role="form" @submit.prevent="handleSubmit">
           <div class="fields">
             <div class="field name">
+              <label class="sr-only" for="name">{{ $t('contact.name') }}</label>
               <input
                 id="name"
                 v-model.trim="formInfos.name"
                 name="name"
                 type="text"
                 :placeholder="$t('contact.name')"
+                autocomplete="name"
                 required
               />
             </div>
             <div class="field email">
+              <label class="sr-only" for="email">{{ $t('contact.email') }}</label>
               <input
                 id="email"
                 v-model.trim="formInfos.email"
                 name="email"
                 type="email"
                 :placeholder="$t('contact.email')"
+                autocomplete="email"
                 required
               />
             </div>
           </div>
           <div class="field">
+            <label class="sr-only" for="subject">{{ $t('contact.subject') }}</label>
             <input
               id="subject"
               v-model.trim="formInfos.subject"
@@ -107,21 +112,28 @@ const isFormComplete = () => {
             />
           </div>
           <div class="field textarea">
+            <label class="sr-only" for="message">Message</label>
             <textarea
               id="message"
               v-model.trim="formInfos.message"
               name="message"
               placeholder="Message"
+              rows="4"
               required
             ></textarea>
           </div>
           <div>
-            <button @click.prevent="isFormComplete" class="button-custom" type="submit">
+            <button class="button-custom" type="submit">
               {{ $t('contact.send') }}
             </button>
           </div>
-          <div v-if="showMessage">
-            Please email me at my address because there is currently a problem with the server!
+          <div
+            v-if="feedbackMessage"
+            :class="['form-feedback', feedbackVariant]"
+            aria-live="polite"
+            role="status"
+          >
+            {{ feedbackMessage }}
           </div>
         </form>
       </section>
@@ -263,5 +275,29 @@ const isFormComplete = () => {
   #contact .fields {
     flex-direction: column;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.form-feedback {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.form-feedback.error {
+  color: crimson;
+}
+
+.form-feedback.info {
+  color: #155724;
 }
 </style>

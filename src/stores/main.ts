@@ -1,18 +1,12 @@
 import { defineStore } from 'pinia'
 
-export const useMainStore = defineStore({
-  id: 'main',
-
-  state: () => {
-    return {
-      posOfElems: [0, 0, 0, 0]
-    }
-  },
+export const useMainStore = defineStore('main', {
+  state: () => ({
+    posOfElems: [0, 0, 0, 0] as number[]
+  }),
 
   getters: {
-    getPosOfElems(): number[] {
-      return this.posOfElems
-    }
+    getPosOfElems: (state): number[] => state.posOfElems
   },
 
   actions: {

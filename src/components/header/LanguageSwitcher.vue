@@ -1,48 +1,17 @@
 <script setup lang="ts">
-import { ref, onBeforeMount, computed } from 'vue'
+import { ref, onBeforeMount, computed, watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
 import { useI18n } from 'vue-i18n'
 import flagFr from '@/assets/flags/FR.svg?raw'
 import flagEn from '@/assets/flags/EN.svg?raw'
 
-const { availableLocales, locale } = useI18n()
-
-const target = ref(null)
-onClickOutside(target, () => (isVisible.value = true))
-
-const isVisible = ref(true)
-const toggle = () => {
-  isVisible.value = !isVisible.value
+type LanguageOption = {
+  name: string
+  flag: string
 }
 
-onBeforeMount(() => {
-  const clientLanguage = navigator.language.split('-')[0]
-
-  // if there is no language in localStorage
-  if (localStorage.getItem('language') === null) {
-    // if we support the client language
-    if (availableLocales.includes(clientLanguage)) {
-      locale.value = clientLanguage
-    } else {
-      // if we don't support the client language, use the first one
-      locale.value = availableLocales[0]
-    }
-  } // if there is a language in localStorage
-  else {
-    const languageInStorage = localStorage.getItem('language')
-    if (languageInStorage === null) return
-
-    // if the language in localStorage is supported
-    if (availableLocales.includes(languageInStorage)) {
-      locale.value = languageInStorage
-    } else {
-      locale.value = availableLocales[0]
-    }
-  }
-})
-
-const availableLanguage = {
+const availableLanguage: Record<string, LanguageOption> = {
   fr: {
     name: 'fr',
     flag: flagFr
@@ -53,49 +22,96 @@ const availableLanguage = {
   }
 }
 
-const languages = computed(() => {
-  const myObj: any = {}
-  for (const key in availableLanguage) {
-    // if the language is the current language
-    if (key === locale.value) {
-      // create an object who has the key active
-      myObj.active = {
-        name: availableLanguage[key as 'fr' | 'en'].name,
-        flag: availableLanguage[key as 'fr' | 'en'].flag
-      }
-    } else {
-      // create an object who has the key not active
-      myObj.notActive = {
-        name: availableLanguage[key as 'fr' | 'en'].name,
-        flag: availableLanguage[key as 'fr' | 'en'].flag
-      }
-    }
-  }
-  return myObj
+const { availableLocales, locale } = useI18n()
+
+const target = ref<HTMLElement | null>(null)
+const isMenuOpen = ref(false)
+
+onClickOutside(target, () => {
+  isMenuOpen.value = false
 })
+
+const ensureSupportedLocale = (code: string | null | undefined) => {
+  if (!code) return undefined
+  return availableLocales.includes(code) ? code : undefined
+}
+
+onBeforeMount(() => {
+  const storedLanguage = ensureSupportedLocale(localStorage.getItem('language'))
+  if (storedLanguage) {
+    locale.value = storedLanguage
+    return
+  }
+
+  const clientLanguage = ensureSupportedLocale(navigator.language.split('-')[0])
+  locale.value = clientLanguage ?? availableLocales[0] ?? 'en'
+})
+
+watch(
+  () => locale.value,
+  (lang) => {
+    localStorage.setItem('language', lang)
+  }
+)
+
+const languageOptions = computed(() => {
+  const fallbackOption = availableLanguage.en
+
+  const options = availableLocales
+    .map((code) => availableLanguage[code])
+    .filter((option): option is LanguageOption => Boolean(option))
+
+  if (!options.length && fallbackOption) {
+    options.push(fallbackOption)
+  }
+
+  const active = options.find((option) => option.name === locale.value) ?? options[0]
+  const others = options.filter((option) => option && option.name !== active?.name)
+
+  return {
+    active,
+    others
+  }
+})
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 
 const handleSwitchLanguage = (name: string) => {
   locale.value = name
-  localStorage.setItem('language', locale.value)
+  isMenuOpen.value = false
 }
 </script>
 
 <template>
-  <div id="container" ref="target" :class="{ visible: !isVisible }">
-    <button class="item trigger" @click="toggle">
-      <span class="image" v-html="languages.active.flag"></span>
-      <p>{{ languages.active.name }}</p>
-      <div class="caret" :class="{ 'caret-rotate': isVisible }"></div>
+  <div id="container" ref="target" :class="{ open: isMenuOpen }">
+    <button
+      class="item trigger"
+      type="button"
+      aria-haspopup="listbox"
+      :aria-expanded="isMenuOpen"
+      @click="toggleMenu"
+    >
+      <span class="image" v-html="languageOptions.active?.flag"></span>
+      <p>{{ languageOptions.active?.name }}</p>
+      <div class="caret" :class="{ 'caret-rotate': isMenuOpen }"></div>
     </button>
 
-    <button
-      class="item choice"
-      :class="{ hidden: isVisible }"
-      @click="handleSwitchLanguage(languages.notActive.name)"
-    >
-      <span class="image" v-html="languages.notActive.flag"></span>
-      <p>{{ languages.notActive.name }}</p>
-    </button>
+    <div v-if="languageOptions.others.length" class="choices" role="listbox">
+      <button
+        v-for="option in languageOptions.others"
+        :key="option.name"
+        class="item choice"
+        :class="{ hidden: !isMenuOpen }"
+        type="button"
+        role="option"
+        @click="handleSwitchLanguage(option.name)"
+      >
+        <span class="image" v-html="option.flag"></span>
+        <p>{{ option.name }}</p>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -105,11 +121,34 @@ const handleSwitchLanguage = (name: string) => {
 }
 
 .item {
-  display: flex;
-  width: 80px;
-  height: 30px;
-  align-items: center;
+    display: flex;
+    width: 80px;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    transition: background-color 0.3s ease;
+}
+
+.trigger {
+  background-color: hsla(0, 0%, 99.2%, 0.1);
+  border-radius: 8px;
   justify-content: space-around;
+}
+
+.choices {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.choice {
+  justify-content: flex-start;
+  column-gap: 8px;
+  padding-left: 4px;
 }
 
 .item:hover {
@@ -117,50 +156,32 @@ const handleSwitchLanguage = (name: string) => {
   backdrop-filter: blur(5px);
   cursor: pointer;
 }
-.trigger {
-  background-color: hsla(0, 0%, 99.2%, 0.1);
-  border-radius: 8px;
-  justify-content: space-around;
+
+.choice.hidden {
+  display: none;
 }
 
-.choice {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  justify-content: flex-start;
-  column-gap: 8px;
-  padding-left: 4px;
-  /*background-color: hsla(0,0%,99.2%,.15);*/
-}
-
-.visible .item:nth-child(1) {
+#container.open .item:nth-child(1) {
   background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5px);
   border-top: solid 1px crimson;
   border-right: solid 1px crimson;
   border-left: solid 1px crimson;
   border-radius: 8px 8px 0 0;
 }
 
-.visible .item:nth-child(2) {
+#container.open .choice {
   background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5px);
-  border-radius: 0 0 8px 8px;
-  border-bottom: solid 1px crimson;
   border-right: solid 1px crimson;
   border-left: solid 1px crimson;
 }
 
-.visible .item:hover {
+#container.open .choice:last-child {
+  border-bottom: solid 1px crimson;
+  border-radius: 0 0 8px 8px;
+}
+
+#container.open .item:hover {
   background-color: rgb(233, 126, 147) !important;
-}
-
-.visible .item p {
-  color: #f1f1f1;
-}
-
-.choice.hidden {
-  display: none;
 }
 
 .item p {
@@ -169,7 +190,7 @@ const handleSwitchLanguage = (name: string) => {
   text-transform: uppercase;
 }
 
-span {
+.image {
   width: 18px;
   height: auto;
 }

@@ -1,21 +1,72 @@
-// import { describe, it, expect } from 'vitest'
-// import { setActivePinia, createPinia } from 'pinia'
-// import { mount } from '@vue/test-utils'
-// import { createTestingPinia } from '@pinia/testing'
-// import { useMainStore } from '../../stores/main'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
+import { mount } from '@vue/test-utils'
+import { createI18n } from 'vue-i18n'
 
-// import TheHeader from '../header/TheHeader.vue'
-// import { beforeEach } from 'node:test'
+import TheHeader from '../header/TheHeader.vue'
 
-// describe('TheHeader', () => {
-//   const wrapper = mount(TheHeader, {
-//     global: {
-//       plugins: [createTestingPinia()]
-//     }
-//   })
-//   const store = useMainStore()
+class IntersectionObserverMock {
+	observe() {}
+	unobserve() {}
+	disconnect() {}
+}
 
-//   it('should have a title', () => {
-//     expect(wrapper.find('h1').text()).toBe('The Header')
-//   })
-// })
+const mountHeader = () => {
+	const i18n = createI18n({
+		legacy: false,
+		locale: 'en',
+		messages: {
+			en: {
+				header: {
+					about: 'About',
+					skills: 'Skills',
+					activities: 'Activities',
+					contact: 'Contact'
+				}
+			}
+		}
+	})
+
+	return mount(TheHeader, {
+		attachTo: document.body,
+		global: {
+			plugins: [i18n],
+			stubs: {
+				DarkModeToggle: {
+					template: '<div data-test="dark-mode-toggle" />'
+				},
+				LanguageSwitcher: {
+					template: '<div data-test="language-switcher" />'
+				},
+				ScrollIndicator: {
+					template: '<div data-test="scroll-indicator" />'
+				}
+			}
+		}
+	})
+}
+
+describe('TheHeader', () => {
+	beforeEach(() => {
+		vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
+	})
+
+	afterEach(() => {
+		vi.unstubAllGlobals()
+	})
+
+	it('renders the expected navigation links with translations', () => {
+		const wrapper = mountHeader()
+
+		const links = wrapper.findAll('nav a')
+
+		expect(links).toHaveLength(4)
+		expect(links.map((link) => link.text())).toEqual([
+			'About',
+			'Skills',
+			'Activities',
+			'Contact'
+		])
+
+		wrapper.unmount()
+	})
+})

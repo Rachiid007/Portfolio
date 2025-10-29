@@ -8,12 +8,12 @@
   "presentation": {
     "hello": "Hey,",
     "i_am": "I'm",
-    "position": "System Engineer",
+    "position": "DevOps Engineer",
     "contact_me": "Contact me"
   },
   "about": {
     "title": "About me",
-    "subTitle": "My name is Abderrachid BELLAALI and I am a 3rd year student in C.S. at EPHEC University College.",
+    "subTitle": "My name is Abderrachid Bellaali, and I study Computer Science at EPHEC University College.",
     "bigText": "Passionate about development, I have a practical experience in back-end and front-end development acquired during various projects and trainings.",
     "download_cv": "Download my resume"
   },

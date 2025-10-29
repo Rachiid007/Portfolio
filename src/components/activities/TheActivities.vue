@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 import CarouselSlide from '@/components/activities/CarouselSlide.vue'
 import TheCarousel from '@/components/activities/TheCarousel.vue'
@@ -11,6 +11,7 @@ import ActivitiesSummary from '@/components/activities/ActivitiesSummary.vue'
 import { activitiesInfos } from '@/data/activitiesInfos'
 
 const route = useRoute()
+const router = useRouter()
 
 const isModalOpen = ref(false)
 const isSummary = ref(false)
@@ -22,19 +23,34 @@ const openSummary = () => {
   isCarousel.value = false
 }
 
-const openCarousel = () => {
+const openCarousel = (id?: number) => {
   isModalOpen.value = true
   isSummary.value = false
   isCarousel.value = true
+
+  if (typeof id === 'number' && route.fullPath !== `/activity/${id}`) {
+    router.push(`/activity/${id}`)
+  }
 }
 
-if (route.fullPath === '/summary') {
-  openSummary()
-} else if (route.fullPath === '/') {
+const resetModalState = () => {
   isModalOpen.value = false
-} else if (route.fullPath === '/activity/' + route.params.id) {
-  openCarousel()
+  isSummary.value = false
+  isCarousel.value = false
 }
+
+const currentActivityId = computed(() => {
+  const rawId = route.params.id
+  const value = Array.isArray(rawId) ? rawId[0] : rawId
+
+  if (value === undefined) {
+    return undefined
+  }
+
+  const parsed = Number(value)
+  return Number.isFinite(parsed) ? parsed : undefined
+})
+
 
 interface ActivitySlide {
   img: string[]
@@ -47,7 +63,7 @@ function getImageUrl(name: string) {
 
 const carouselSlides = computed(() => {
   const slides: ActivitySlide = { img: [], description: '' }
-  const activityInfo = activitiesInfos.find((elem) => elem.id === +route.params.id)
+  const activityInfo = activitiesInfos.find((elem) => elem.id === currentActivityId.value)
   if (activityInfo) {
     slides.img = activityInfo.img.map((img) => {
       return getImageUrl(img)
@@ -58,10 +74,40 @@ const carouselSlides = computed(() => {
 })
 
 const closeModal = () => {
-  isModalOpen.value = false
-  isSummary.value = false
-  isCarousel.value = false
+  resetModalState()
+  if (route.fullPath !== '/') {
+    router.push('/')
+  }
 }
+
+watch(
+  () => [route.fullPath, currentActivityId.value],
+  () => {
+    if (route.name === 'activity' || route.fullPath.startsWith('/activity/')) {
+      if (currentActivityId.value === undefined) {
+        router.replace({ name: 'NotFound' })
+        return
+      }
+
+      const activityExists = activitiesInfos.some((elem) => elem.id === currentActivityId.value)
+      if (!activityExists) {
+        router.replace({ name: 'NotFound' })
+        return
+      }
+
+      openCarousel()
+      return
+    }
+
+    if (route.name === 'summary' || route.fullPath === '/summary') {
+      openSummary()
+      return
+    }
+
+    resetModalState()
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -74,7 +120,7 @@ const closeModal = () => {
       {{ $t('activities.summary') }}
     </RouterLink>
 
-    <ModalBox :show="isModalOpen" @close-modal="closeModal">
+  <ModalBox :show="isModalOpen" @close-modal="closeModal">
       <ActivitiesSummary v-if="isSummary"></ActivitiesSummary>
       <TheCarousel
         v-if="isCarousel"

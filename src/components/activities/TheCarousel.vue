@@ -1,12 +1,20 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-const props = defineProps(['slidesList', 'startAutoPlay', 'timeout'])
+import { computed, onBeforeUnmount, ref, watchEffect } from 'vue'
+
+interface CarouselProps {
+  slidesList: string[]
+  startAutoPlay?: boolean
+  timeout?: number
+}
+
+const props = defineProps<CarouselProps>()
 
 const currentSlide = ref(1)
-// const getSlideCount = computed(() => props.nbrOfSlides)
-const autoPlayEnabled = ref(props.startAutoPlay === undefined ? true : props.startAutoPlay)
-const timeoutDuration = ref(props.timeout === undefined ? 5000 : props.timeout)
 const navEnabled = computed(() => props.slidesList.length > 1)
+
+const autoPlayEnabled = computed(() => props.startAutoPlay ?? true)
+const timeoutDuration = computed(() => props.timeout ?? 5000)
+let intervalId: number | undefined
 
 const nextSlide = () => {
   if (currentSlide.value === props.slidesList.length) {
@@ -28,19 +36,31 @@ const goToSlide = (index: number) => {
   currentSlide.value = index + 1
 }
 // autoplay
-const autoPlay = () => {
-  setInterval(() => {
+watchEffect((onCleanup) => {
+  if (!autoPlayEnabled.value || props.slidesList.length <= 1) {
+    return
+  }
+
+  intervalId = window.setInterval(() => {
     nextSlide()
   }, timeoutDuration.value)
-}
-if (autoPlayEnabled.value) {
-  autoPlay()
-}
-// onMounted(() => {
-//   currentSlide.value = 1
-// })
 
-// TODO: when the user presses the keys: ">" or "<", trigger the carousel !
+  onCleanup(() => {
+    if (intervalId !== undefined) {
+      clearInterval(intervalId)
+      intervalId = undefined
+    }
+  })
+})
+
+onBeforeUnmount(() => {
+  if (intervalId !== undefined) {
+    clearInterval(intervalId)
+    intervalId = undefined
+  }
+})
+
+// TODO: add keyboard navigation (left/right arrows) for accessibility.
 </script>
 
 <template>

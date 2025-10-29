@@ -1,45 +1,47 @@
 <script setup lang="ts">
-import { ref, onMounted, onUpdated } from 'vue'
-import { useScrollLock, onKeyStroke, onClickOutside } from '@vueuse/core'
-import { useRouter } from 'vue-router'
-const props = defineProps({
-  show: Boolean
-})
+import { ref, watch, onBeforeUnmount } from 'vue'
+import { useScrollLock, onClickOutside, useEventListener } from '@vueuse/core'
+
+const props = defineProps<{
+  show: boolean
+}>()
+
 const emit = defineEmits(['close-modal'])
 
-const isLocked = useScrollLock(document.body)
-const router = useRouter()
-onUpdated(() => {
-  if (props.show) {
-    isLocked.value = true
+const modal = ref<HTMLElement | null>(null)
+const isLocked = useScrollLock(() => document?.body ?? null)
 
-    // on click ESCAPE key
-    onKeyStroke(['Escape'], () => {
-      emit('close-modal')
-    })
-  } else {
-    isLocked.value = false
-    router.push({ path: '/' })
-  }
-})
+let stopKeyListener: (() => void) | undefined
 
-onMounted(() => {
-  if (props.show) {
-    isLocked.value = true
+watch(
+  () => props.show,
+  (show) => {
+    isLocked.value = show
 
-    // on click ESCAPE key
-    onKeyStroke(['Escape'], () => {
-      emit('close-modal')
-    })
-  } else {
-    isLocked.value = false
-    router.push({ path: '/' })
-  }
-})
+    if (show) {
+      stopKeyListener = useEventListener(window, 'keydown', (event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+          emit('close-modal')
+        }
+      })
+    } else if (stopKeyListener) {
+      stopKeyListener()
+      stopKeyListener = undefined
+    }
+  },
+  { immediate: true }
+)
 
-const modal = ref(null)
 onClickOutside(modal, () => {
-  emit('close-modal')
+  if (props.show) {
+    emit('close-modal')
+  }
+})
+
+onBeforeUnmount(() => {
+  stopKeyListener?.()
+  stopKeyListener = undefined
+  isLocked.value = false
 })
 </script>
 
